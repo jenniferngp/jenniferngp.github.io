@@ -1,0 +1,121 @@
+{"0": {
+    "doc": "ATAC-seq",
+    "title": "ATAC-seq",
+    "content": "Last updated: 12-19-2023 . ATAC-seq stands for Assay for Transposase-Accessible Chromatin with Sequencing. ATAC-seq is a widely adopted technique for profiling open chromatin regions throughout the genome. Recently, it has been extended to infer transcription factor occupancy by leveraging Tn5 insertion profiles, giving rise to a technique called digital ATAC-seq footprinting. By integrating these two types of information, ATAC-seq enables the identification of regions exhibiting active regulatory activity, such as enhancers and promoters, and facilitates the elucidation of the transcription factors involved in coordinating subsequent transcriptional processes. ATAC-seq method was first published in 2013 by Buenostro et al., Nature Methods at the Greenleaf Lab @ Stanford. ",
+    "url": "/doc/tutorials/atac-seq",
+    
+    "relUrl": "/doc/tutorials/atac-seq"
+  },"1": {
+    "doc": "ATAC-seq",
+    "title": "Role of Tn5 Transposase in ATAC-seq",
+    "content": "Tn5 is a hyperactive transposase enzyme derived from the bacterium Tn5. It is used in ATAC-seq to efficiently fragment accessible DNA sites and incorporate sequencing adapaters. Tn5 also preferentially targets open chromatin regions because steric hindrance at non-accessible regions makes it difficult for adaptor incorporation. ",
+    "url": "/doc/tutorials/atac-seq#role-of-tn5-transposase-in-atac-seq",
+    
+    "relUrl": "/doc/tutorials/atac-seq#role-of-tn5-transposase-in-atac-seq"
+  },"2": {
+    "doc": "ATAC-seq",
+    "title": "How to process ATAC-seq data (Frazer Lab Pipeline)",
+    "content": ". | Align (BWA and STAR produce very similar results) reference=/reference/private/STAR/hg19_gencode34 STAR --runThreadN 8 --alignIntronMax 1 --genomeDir $reference \\ --genomeLoad NoSharedMemory --readFilesCommand zcat \\ --readFilesIn ${dir}/R1.fastq.gz ${dir}/R2.fastq.gz \\ --outSAMattributes All --outSAMunmapped Within \\ --outSAMattrRGline ID:1 PL:ILLUMINA PU:CARDIPS LB:${id} SM:${id} \\ --outFilterMultimapNmax 20 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 \\ --seedSearchStartLmax 20 --outFilterScoreMinOverLread 0.1 --outFilterMatchNminOverLread 0.1 \\ --outSAMtype BAM Unsorted --outFileNamePrefix ${out_dir}/ . | Sort. Fixmate. Mark duplicates samtools sort -n -m 2G -@ 8 $bam -o ${dir}/${name}.nsorted.bam samtools fixmate -m -@ 8 ${dir}/${name}.nsorted.bam ${dir}/${name}.fixmate.bam samtools sort -m 2G -@ 8 -o ${dir}/${name}.sorted.bam ${dir}/${name}.fixmate.bam samtools markdup -@ 8 ${dir}/${name}.sorted.bam ${out_dir}/${name}.mdup.bam samtools index -@ 8 ${out_dir}/${name}.mdup.bam . | Optional: Get mapping stats (duplicates, chrM reads, etc.) samtools flagstat -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.flagstat samtools idxstats -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.idxstats samtools stats -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.stats . | Remove duplicates (-F 1024). Filter reads with mapping quality &gt; 20 (-q 20). Keep reads in proper pair (-f 2). Keep fragments between 38-2000 bp. chrs=(`seq 1 22` X Y) chrs=chr`echo ${chrs[@]} | sed 's/ / chr/g'` samtools view -h -q 20 -f 2 -F 1024 ${out_dir}/${name}.mdup.bam $chrs |\\ awk 'function abs(v) {return v &lt; 0 ? -v : v}; substr($0,1,1)==\"@\" || (abs($9) &gt;= 38 &amp;&amp; abs($9) &lt;= 2000)' |\\ samtools view -b -@ 4 &gt; ${out_dir}/${name}.filt.bam . | Index samtools index ${out_dir}/${name}.filt.bam . | Call narrow peaks macs2 callpeak -f BAMPE -g hs -t ${out_dir}/${name}.filt.bam -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --call-summits . | Call broad peaks macs2 callpeak -f BAMPE -g hs -t ${out_dir}/${name}.filt.bam -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --broad . | Count reads in promoters samtools view -c -L ${promoters_bed} ${out_dir}/${name}.filt.bam &gt; ${out_dir}/reads_in_promoter.txt . | Convert peak file to saf (peaks2saf.pl). Count reads in each peak (featureCounts). cat $peak | peaks2saf.pl &gt; ${saf} featureCounts -p -T 4 --donotsort -F SAF -a ${saf} -o ${out_file} ${out_dir}/${name}.filt.bam . | . Next steps: . | Remove peaks in blacklisted regions (from ENCODE) | TMM normalize read counts using edgeR | Generate consensus peaks by merging peaks across samples or selecting a subsample of high-quality samples and call peaks from their merged bam files. | . ",
+    "url": "/doc/tutorials/atac-seq#how-to-process-atac-seq-data-frazer-lab-pipeline",
+    
+    "relUrl": "/doc/tutorials/atac-seq#how-to-process-atac-seq-data-frazer-lab-pipeline"
+  },"3": {
+    "doc": "Basic commands",
+    "title": "Basic GitHub commands",
+    "content": " ",
+    "url": "/docs/miscellaneous/github/commands#basic-github-commands",
+    
+    "relUrl": "/docs/miscellaneous/github/commands#basic-github-commands"
+  },"4": {
+    "doc": "Basic commands",
+    "title": "Basic commands",
+    "content": " ",
+    "url": "/docs/miscellaneous/github/commands",
+    
+    "relUrl": "/docs/miscellaneous/github/commands"
+  },"5": {
+    "doc": "GitHub",
+    "title": "What is Github?",
+    "content": "GitHub is a web-based platform used for version control and collaboration on software projects. It provides developers with a centralized location to store, manage, and track changes to their code. GitHub utilizes the Git version control system, which allows multiple people to work on the same codebase simultaneously while keeping track of changes and facilitating collaboration. ",
+    "url": "/docs/miscellaneous/github#what-is-github",
+    
+    "relUrl": "/docs/miscellaneous/github#what-is-github"
+  },"6": {
+    "doc": "GitHub",
+    "title": "GitHub",
+    "content": " ",
+    "url": "/docs/miscellaneous/github",
+    
+    "relUrl": "/docs/miscellaneous/github"
+  },"7": {
+    "doc": "Home",
+    "title": "Hello! I’m Jennifer",
+    "content": " ",
+    "url": "/#hello-im-jennifer",
+    
+    "relUrl": "/#hello-im-jennifer"
+  },"8": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"9": {
+    "doc": "Miscellaneous",
+    "title": "Miscellaneous",
+    "content": " ",
+    "url": "/docs/miscellaneous",
+    
+    "relUrl": "/docs/miscellaneous"
+  },"10": {
+    "doc": "Tutorials",
+    "title": "Tutorials",
+    "content": "Here, I provide tutorials on common bioinformatics pipelines. ",
+    "url": "/docs/tutorials",
+    
+    "relUrl": "/docs/tutorials"
+  },"11": {
+    "doc": "RNA-seq",
+    "title": "RNA-seq",
+    "content": "Last updated: 12-19-2023 . RNA-seq, or RNA sequencing, is a technique used in molecular biology to analyze the transcriptome of a sample. The transcriptome refers to the complete set of RNA molecules, including mRNA (messenger RNA), rRNA (ribosomal RNA), tRNA (transfer RNA), and other non-coding RNA produced by the cells of an organism or a tissue. Most RNA-seq data measures mRNA levels, and specialized protocols are used for each type of RNA molecule being measured. ",
+    "url": "/doc/tutorials/rna-seq",
+    
+    "relUrl": "/doc/tutorials/rna-seq"
+  },"12": {
+    "doc": "RNA-seq",
+    "title": "How to process RNA-seq data (Frazer Lab Pipeline)",
+    "content": ". | Make scratch directory dir=`mktemp -d -p scratch` . | Set reference reference_star=/reference/private/STAR/hg38_gencode44/reference reference_rsem=/reference/private/RSEM/hg38_gencode44/reference/hg38_gencode44 . | STAR Alignment date &gt;&amp; 2 in_files=( ${dir}/R1.fastq ${dir}/R2.fastq ) cmd=\"STAR \\ --runThreadN 12 \\ --genomeDir ${reference_star} \\ --genomeLoad NoSharedMemory \\ --readFilesIn ${in_files[@]} \\ --outSAMattributes All \\ --outSAMunmapped Within \\ --outSAMattrRGline ID:1 PL:ILLUMINA PU:CARDIPS LB:${name} SM:${name} \\ --outFilterMultimapNmax 20 \\ --outFilterMismatchNmax 999 \\ --alignIntronMin 20 \\ --alignIntronMax 1000000 \\ --alignMatesGapMax 1000000 \\ --outSAMtype BAM Unsorted \\ --outFileNamePrefix ${dir}/ \\ --quantMode TranscriptomeSAM\" echo $cmd &gt;&amp; 2; eval $cmd . | Sort. Fill mate coordinates. Index date &gt;&amp; 2 cmd=\"samtools sort -m 2G -n -o ${dir}/Aligned.out.namesorted.bam -@ 12 ${dir}/Aligned.out.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools fixmate -@ 12 -m ${dir}/Aligned.out.namesorted.bam ${dir}/Aligned.out.namesorted.fixmate.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools sort -m 2G -o ${dir}/Aligned.out.sorted.bam -@ 12 ${dir}/Aligned.out.namesorted.fixmate.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools index -@ 12 ${dir}/Aligned.out.sorted.bam ${dir}/Aligned.out.sorted.bam.bai\" echo $cmd &gt;&amp; 2; eval $cmd . | Mark duplicates date &gt;&amp; 2 cmd=\"samtools markdup -@ 12 -s -T ${dir}/temp ${dir}/Aligned.out.sorted.bam ${dir}/Aligned.out.sorted.mdup.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools index -@ 12 ${dir}/Aligned.out.sorted.mdup.bam ${dir}/Aligned.out.sorted.mdup.bam.bai\" echo $cmd &gt;&amp; 2; eval $cmd . | Get mapping stats (total number reads, total mapped, total paired reads, total dupliciates, etc.) date &gt;&amp; 2 cmd=\"samtools flagstat -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.flagstat\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools idxstats -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.idxstats\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools stats -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.stats\" echo $cmd &gt;&amp; 2; eval $cmd . | Run RSEM to generate read counts, TPM, and RPKM. Uses Transcriptome BAM file generated from STAR. date &gt;&amp; 2 cmd=\"rsem-calculate-expression \\ --bam \\ --num-threads 16 \\ --no-bam-output \\ --seed 3272015 \\ --estimate-rspd \\ --forward-prob 0\" if [ ${#in_files[@]} -gt 1 ]; then cmd=$cmd\" --paired-end\" fi cmd=$cmd\" ${dir}/Aligned.toTranscriptome.out.bam ${reference_rsem} ${dir}/rsem\" echo $cmd &gt;&amp; 2; eval $cmd . | Reformat header for PICARD date &gt;&amp; 2 cmd=\"samtools view -H ${dir}/Aligned.out.sorted.mdup.bam | sed 's,^@RG.*,@RG\\tID:None\\tSM:None\\tLB:None\\tPL:Illumina,g' | samtools reheader - ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.reheader.bam\" echo $cmd &gt;&amp; 2; eval $cmd . | Run PICARD to get more stats (pct_mrna_bases, pct_intergenic_bases, etc.) date &gt;&amp; 2 refFlat=/reference/public/UCSC/hg38/refFlat.txt.gz cmd=\"picard CollectRnaSeqMetrics \\ I=${dir}/Aligned.out.sorted.mdup.reheader.bam \\ O=${dir}/picard.RNA_Metrics \\ VALIDATION_STRINGENCY=SILENT \\ REF_FLAT=$refFlat \\ STRAND=NONE\" echo $cmd &gt;&amp; 2; eval $cmd . | . ",
+    "url": "/doc/tutorials/rna-seq#how-to-process-rna-seq-data-frazer-lab-pipeline",
+    
+    "relUrl": "/doc/tutorials/rna-seq#how-to-process-rna-seq-data-frazer-lab-pipeline"
+  },"13": {
+    "doc": "LD Score Regression",
+    "title": "LD Score Regression (LDSC)",
+    "content": ". | Download baseline annotations | Download 1000 Genomes (European) LD scores | Download hapmap snps | Prepare GWAS input with columns SNP (rsid), POS, N, N_CASE, N_CONTROL, BETA, SE, MAF | . Tip: Make sure that MAF, N, N_CASE, and N_CONTROL have no non-numeric values and remove all empty values . | Prepare annotation files | Compute LD scores for your annotations (separate by chromosome) | Estimate heritability enrichment | . ",
+    "url": "/doc/tutorials/run-ldsc#ld-score-regression-ldsc",
+    
+    "relUrl": "/doc/tutorials/run-ldsc#ld-score-regression-ldsc"
+  },"14": {
+    "doc": "LD Score Regression",
+    "title": "LD Score Regression",
+    "content": " ",
+    "url": "/doc/tutorials/run-ldsc",
+    
+    "relUrl": "/doc/tutorials/run-ldsc"
+  },"15": {
+    "doc": "Build a website (Jekyll)",
+    "title": "Build a website with Jekyll template",
+    "content": ". | Create a GitHub repository | Clone repository to local git clone https://github.com/your-username/respository-name.git . | Install Ruby To check if you have Ruby installed, run ruby -v . If not, refer to the Ruby documentation for instructions (https://www.ruby-lang.org). | Install Bundler gem install bundler . | Set up Just the Docs template cd repository-name . Create a file named “Gemfile” and add the following lines . source \"https://rubygems.org\" gem \"github-pages\", group: :jekyll_plugins . Save and close “Gemfile”. Then, create a file named “_config.yml” and add the following lines . remote_theme: pmarsceill/just-the-docs title: My Docs description: Your site description . Save and close “_config.yml”. | Install webrick gem install webrick . If you have Ruby 3.0, you’ll need to add to Gemfile because it’s no longer provided. bundle add webrick . | Install the required dependencies bundle install . | Build and serve website bundle exec jekyll serve . Jekyll will start the local server and output a URL where you can view your website real-time. Open your web browser and visit the provided URL. | . ",
+    "url": "/doc/miscellaneous/github/website#build-a-website-with-jekyll-template",
+    
+    "relUrl": "/doc/miscellaneous/github/website#build-a-website-with-jekyll-template"
+  },"16": {
+    "doc": "Build a website (Jekyll)",
+    "title": "Build a website (Jekyll)",
+    "content": " ",
+    "url": "/doc/miscellaneous/github/website",
+    
+    "relUrl": "/doc/miscellaneous/github/website"
+  }
+}
