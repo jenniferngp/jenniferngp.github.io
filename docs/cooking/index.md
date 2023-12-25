@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Miscellaneous
+title: Cooking
 nav_order: 2
 has_children: true
-permalink: /docs/miscellaneous
+permalink: /docs/cooking
 ---

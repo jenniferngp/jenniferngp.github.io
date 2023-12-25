@@ -1,9 +1,8 @@
 ---
 layout: default
-parent: GitHub
-grand_parent: Other technical tutorials
-permalink: /doc/other_tech/github/website
-nav_order: 2
+parent: Tutorials
+permalink: /doc/tutorials/website
+nav_order: 5
 title: Build a website (Jekyll)
 ---
 

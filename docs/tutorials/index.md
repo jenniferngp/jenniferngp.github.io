@@ -6,4 +6,3 @@ title: Tutorials
 permalink: /docs/tutorials
 ---
 
-Here, I provide tutorials on common bioinformatics pipelines.

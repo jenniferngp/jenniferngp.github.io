@@ -2,7 +2,7 @@
 layout: default
 parent: Tutorials
 permalink: /doc/tutorials/run-ldsc
-nav_order: 2
+nav_order: 3
 title: LD Score Regression
 ---
 
