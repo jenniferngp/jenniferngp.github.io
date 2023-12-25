@@ -1,7 +1,7 @@
 ---
 layout: default
-parent: Tutorials
-permalink: /doc/tutorials/website
+parent: Notes
+permalink: /doc/notes/website
 nav_order: 5
 title: Build a website (Jekyll)
 ---

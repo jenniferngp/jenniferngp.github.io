@@ -1,7 +1,7 @@
 ---
 layout: default
-parent: Tutorials
-permalink: /doc/tutorials/atac-seq
+parent: Notes
+permalink: /doc/notes/atac-seq
 nav_order: 1
 title: ATAC-seq
 ---

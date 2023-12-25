@@ -1,7 +1,7 @@
 ---
 layout: default
-parent: Tutorials
-permalink: /doc/tutorials/rna-seq
+parent: Notes
+permalink: /doc/notes/rna-seq
 nav_order: 2
 title: RNA-seq
 ---

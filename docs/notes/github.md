@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Set up Github
-parent: Tutorials
+parent: Notes
 nav_order: 4
-permalink: /docs/tutorials/github
+permalink: /docs/notes/github
 ---
 
 # What is Github?
