@@ -8,15 +8,14 @@ title: LD Score Regression
 
 # LD Score Regression (LDSC)
 
-1. Prepare GWAS input with columns SNP (rsid), POS, N, N_CASE, N_CONTROL, BETA, SE, MAF
-
+#### 1. Prepare GWAS input with columns SNP (rsid), POS, N, N_CASE, N_CONTROL, BETA, SE, MAF
 Tip: Make sure that MAF, N, N_CASE, and N_CONTROL have no non-numeric values and remove all empty values
 
-2. Prepare annotations input
+#### 2. Prepare annotations input
 
 For easier, faster, and cleaner implementation, I recommend using  SNPs from baseline. The program will output an error if the variants are not in the same order across the annotations, so it is easier to use SNPs from the baseline files (with the same order) and annotate them with your annotations. 
 
-3. Calculate LD scores
+#### 3. Calculate LD scores
 ```sh
 python ldsc.py \
 --l2 \
@@ -30,7 +29,7 @@ python ldsc.py \
 
 Plink files were downloaded from broad-alkesgroup-public-requester-pays/LDSCORE/GRCh38/plink_files.tgz
 
-4. Calculate heritability enrichment
+#### 4. Calculate heritability enrichment
 ```sh
 python ldsc.py \
 --h2 ${trait_name}.sumstats.gz \
