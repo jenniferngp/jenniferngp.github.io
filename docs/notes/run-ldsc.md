@@ -11,11 +11,11 @@ title: LD Score Regression
 Original tutorial: https://github.com/bulik/ldsc/wiki
 
 1. Prepare GWAS input with columns SNP (rsid), POS, N, N_CASE, N_CONTROL, BETA, SE, MAF
-
+\
 Tip: Make sure that MAF, N, N_CASE, and N_CONTROL have no non-numeric values and remove all empty values
 
 1. Prepare annotations input
-
+\
 For easier, faster, and cleaner implementation, I recommend using  SNPs from baseline. The program will output an error if the variants are not in the same order across the annotations, so it is easier to use SNPs from the baseline files (with the same order) and annotate them with your annotations. 
 
 1. Calculate LD scores
