@@ -1,7 +1,7 @@
 ---
 layout: default
-parent: Notes
-permalink: /doc/notes/run-ldsc
+parent: Bioinformatics
+permalink: /doc/bioinformatics/run-ldsc
 nav_order: 3
 title: LD Score Regression
 ---

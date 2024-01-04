@@ -1,7 +1,7 @@
 ---
 layout: default
-parent: Notes
-permalink: /doc/notes/atac-seq
+parent: Bioinformatics
+permalink: /doc/bioinformatics/atac-seq
 nav_order: 1
 title: ATAC-seq
 ---

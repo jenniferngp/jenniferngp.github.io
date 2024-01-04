@@ -1,7 +1,7 @@
 ---
 layout: default
-parent: Notes
-permalink: /doc/notes/rna-seq
+parent: Bioinformatics
+permalink: /doc/bioinformatics/rna-seq
 nav_order: 2
 title: RNA-seq
 ---

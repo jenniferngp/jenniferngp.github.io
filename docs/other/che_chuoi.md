@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Che Chuoi
-parent: Cooking
+parent: Other
 nav_order: 3
-permalink: /docs/cooking/che_chuoi
+permalink: /docs/other/che_chuoi
 ---
 
 Che chuoi, also known as banana coconut pudding

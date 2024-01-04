@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Bun Rieu
-parent: Cooking
+parent: Other
 nav_order: 1
-permalink: /docs/cooking/bun_rieu
+permalink: /docs/other/bun_rieu
 ---
 
 Bun rieu, also known as tomato noodle soup

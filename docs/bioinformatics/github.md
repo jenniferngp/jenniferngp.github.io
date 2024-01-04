@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Set up Github
-parent: Notes
+parent: Bioinformatics
 nav_order: 4
-permalink: /docs/notes/github
+permalink: /docs/bioinformatics/github
 ---
 
 # What is Github?

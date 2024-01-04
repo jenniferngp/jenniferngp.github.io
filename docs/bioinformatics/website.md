@@ -1,7 +1,7 @@
 ---
 layout: default
-parent: Notes
-permalink: /doc/notes/website
+parent: Bioinformatics
+permalink: /doc/bioinformatics/website
 nav_order: 5
 title: Build a website (Jekyll)
 ---

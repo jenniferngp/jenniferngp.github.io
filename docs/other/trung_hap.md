@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Steamed Egg Cake
-parent: Cooking
+parent: Other
 nav_order: 1
-permalink: /docs/cooking/trung_hap
+permalink: /docs/other/trung_hap
 ---
 
 Ingredients:
