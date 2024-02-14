@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Bun Rieu
-parent: Other
+title: 2.1 Bun Rieu
+parent: 2. Family Recipes
 nav_order: 1
 permalink: /docs/other/bun_rieu
 ---
 
-Bun rieu, also known as tomato noodle soup
+# Tom Yum Tomato Noodle Soup (Bun Rieu)
 
-Ingredients:
+### Ingredients:
 
 - 4 chicken drumsticks
 - 6 cups of water
@@ -20,7 +20,7 @@ Ingredients:
 - 3 tsp salt
 - Tofu cubes (as many as you want; fried or not, both are delicious)
 
-Steps:
+### Steps:
 
 1. Boil water with chicken drumsticks, MSG, sugar, and salt
 2. After water boils, add lemongrass. 

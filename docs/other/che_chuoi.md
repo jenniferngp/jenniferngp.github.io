@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Che Chuoi
-parent: Other
+title: 2.3 Che Chuoi
+parent: 2. Family Recipes 
 nav_order: 3
 permalink: /docs/other/che_chuoi
 ---
 
-Che chuoi, also known as banana coconut pudding
+# Banana Coconut Pudding (Che Chuoi)
 
-Ingredients:
+### Ingredients:
 
 - 1 pound cubed taro
 - 0.5 pound cubed cassava (~$2.5/pound at grocery store, pre-peeled)
@@ -21,7 +21,7 @@ Ingredients:
 - 1 cup coconut cream
 - 0.5 tsp salt
 
-Steps:
+### Steps:
 
 1. Wash taro and cassava. Cut into cubes. 
 2. Boil 4 cups of water. Cook cassava in boiling water for 8 minutes. Drain.

@@ -1,12 +1,14 @@
 ---
 layout: default
-title: Steamed Egg Cake
-parent: Other
-nav_order: 1
+title: 2.4 Steamed Egg Cake
+parent: 2. Family Recipes 
+nav_order: 4
 permalink: /docs/other/trung_hap
 ---
 
-Ingredients:
+# Steamy Egg Cake (Trung Hap)
+
+### Ingredients:
 
 - 1 pound ground meat (pre-seasoned with sugar, MSG, and pepper)
 - 5 whole eggs
@@ -18,7 +20,7 @@ Ingredients:
 - 2.5 tbsp fish sauce
 - 0.25 tbsp chopped thai chilli peppers
 
-Steps :
+### Steps :
 
 1. Soak noodles in boiling water for 15 min
 2. Mix all ingredients

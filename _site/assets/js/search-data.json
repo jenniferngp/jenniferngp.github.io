@@ -1,156 +1,317 @@
 {"0": {
-    "doc": "ATAC-seq",
+    "doc": "The missing link between genetic association and regulatory function",
+    "title": "The missing link between genetic association and regulatory function",
+    "content": "Noah J Connally, …., Chris Cotsapas, Christopher A Cassa, Shamil R Sunyaev. eLife, 2022 . ",
+    "url": "/docs/papers/Connally_eLife_2022#the-missing-link-between-genetic-association-and-regulatoryfunction",
+    
+    "relUrl": "/docs/papers/Connally_eLife_2022#the-missing-link-between-genetic-association-and-regulatoryfunction"
+  },"1": {
+    "doc": "The missing link between genetic association and regulatory function",
+    "title": "Abstract",
+    "content": ". | Despite the availability of gene expression and epigenomic datasets, few variant-to-gene links have emerged. | It is unclear whether these sparse results are due to limitations in available data and methods, or to deficiencies in the underlying assumed model . | To better distinguish between these possibilities, we identified 220 gene-trait pairs in which protein-coding variants influence a complex trait or its Mendelian cognate. | We applied a gene-based approach and found “limited evidence that the baseline expression of trait-related genes explains GWAS associations” . | These results contradict the hypothesis that most complext trait-associated variants coincide with homeostatic expression QTLs, suggesting that better models are needed. | . TLDR; Baseline expression of trait-related genes do not explain the associations between complex traits and genetic variants. ",
+    "url": "/docs/papers/Connally_eLife_2022#abstract",
+    
+    "relUrl": "/docs/papers/Connally_eLife_2022#abstract"
+  },"2": {
+    "doc": "The missing link between genetic association and regulatory function",
+    "title": "Introduction",
+    "content": ". | The “unembellished model - in which GWAS peaks are mediated by the effects on the homeostatic expression assayed in tissue samples - is the exception rather than the rule.” . | “We highlight challenges of current strategies linking GWAS variants to genes and call for a reevaluation of the basic model in favor of more complex models possibly involving context-specificity with respect to cell types, developmental stages, cell states or the constancy of expression effects.” . | There are several observations that challenge the unembellished model: . | eQTLs are enriched in close proximity to genes while GWAS peaks are usually further away. | Expression levels mediate a minority of complex trait heritability. | Only 5-40% of trait associations colocalize with eQTLs | . | A narrower, more testable hypothesis requires identifying genes we believe a priori are biological relevant to the GWAS traits and seeing if they have nearby GWAS peaks and eQTLs. Thus, failure to colocalize would be a meaningful negative results. Previously, when a GWAS peak has no colocalization, the model is inconclusive. But trait-linked genes that fail to colocalize reveal that our method fo detecting non-coding variation is incompatible with our model for understanding it. | True positives were identified by looking for genes that are both in loci associated with a complex trait and also known to harbor coding mutations tied to a related Mendelian trait or the same complex trait. | . ",
+    "url": "/docs/papers/Connally_eLife_2022#introduction",
+    
+    "relUrl": "/docs/papers/Connally_eLife_2022#introduction"
+  },"3": {
+    "doc": "The missing link between genetic association and regulatory function",
+    "title": "Results",
+    "content": ". | The study analyzed 220 unique gene-trait pairs that have known associations with coding variants and have large effect sizes. | To remove signaals from coding variation, the authors re-corrected GWAS summary statistics by conditioning on coding variants. The resulting GWAS associations should reflect only non-coding variants. | The authors found 147 genes out of the 220 that fell within 1 Mb of a GWAS locus, but only 22 (15% of 147) was identified as putatively causative genes using current eQTL colocalization and TWAS methods. | . ",
+    "url": "/docs/papers/Connally_eLife_2022#results",
+    
+    "relUrl": "/docs/papers/Connally_eLife_2022#results"
+  },"4": {
+    "doc": "The missing link between genetic association and regulatory function",
+    "title": "Discussion",
+    "content": "The study results align with the notion that noncoding genetic variants play a significant role in complex traits by regulating gene expression near the variants. However, these findings do not support the model where the effects on gene regulation come solely from genetic influences on baseline gene expression as captured by eQTLs. Current statistical methods fail to link GWAS associations with gene expression changes, suggesting that GWAS variants do not exert their effects through the stable, baseline expression patterns captured by broad eQTL studies. Common explanations for lack of eQTL and GWAS overlap include: non-expression-related mechanisms, lack of GWAS power, absence of relevant eQTLs, and underpowered methods for linking expression to GWAS. The ‘missing regulation’ linking variants to gene expression may be revealed by more nuanced models that consider context-dependent expression and short-term expression variability. Identifying ‘missing regulation’ involves finding new eQTLs linked to GWAS peaks as well as explaining why some eQTLs near GWAS peaks, termed ‘red herring eQTLs,’ do not colocalize with GWAS. The study emphasizes that while eQTLs are important, current models are insufficient because they don’t connect trait-associated noncoding variants with known genes and fail to explain the lack of GWAS effect from ‘red herring’ eQTLs. The study supports the prioritization of data from specialized cell contexts and other forms of expression data that could capture the complex regulatory effects not seen in standard eQTL mapping. ",
+    "url": "/docs/papers/Connally_eLife_2022#discussion",
+    
+    "relUrl": "/docs/papers/Connally_eLife_2022#discussion"
+  },"5": {
+    "doc": "The missing link between genetic association and regulatory function",
+    "title": "The missing link between genetic association and regulatory function",
+    "content": " ",
+    "url": "/docs/papers/Connally_eLife_2022",
+    
+    "relUrl": "/docs/papers/Connally_eLife_2022"
+  },"6": {
+    "doc": "1.1 ATAC-seq",
     "title": "ATAC-seq",
     "content": "Last updated: 12-19-2023 . ATAC-seq stands for Assay for Transposase-Accessible Chromatin with Sequencing. ATAC-seq is a widely adopted technique for profiling open chromatin regions throughout the genome. Recently, it has been extended to infer transcription factor occupancy by leveraging Tn5 insertion profiles, giving rise to a technique called digital ATAC-seq footprinting. By integrating these two types of information, ATAC-seq enables the identification of regions exhibiting active regulatory activity, such as enhancers and promoters, and facilitates the elucidation of the transcription factors involved in coordinating subsequent transcriptional processes. ATAC-seq method was first published in 2013 by Buenostro et al., Nature Methods at the Greenleaf Lab @ Stanford. ",
-    "url": "/doc/bioinformatics/atac-seq",
+    "url": "/doc/bioinformatics/atac-seq#atac-seq",
     
-    "relUrl": "/doc/bioinformatics/atac-seq"
-  },"1": {
-    "doc": "ATAC-seq",
+    "relUrl": "/doc/bioinformatics/atac-seq#atac-seq"
+  },"7": {
+    "doc": "1.1 ATAC-seq",
     "title": "Role of Tn5 Transposase in ATAC-seq",
     "content": "Tn5 is a hyperactive transposase enzyme derived from the bacterium Tn5. It is used in ATAC-seq to efficiently fragment accessible DNA sites and incorporate sequencing adapaters. Tn5 also preferentially targets open chromatin regions because steric hindrance at non-accessible regions makes it difficult for adaptor incorporation. ",
     "url": "/doc/bioinformatics/atac-seq#role-of-tn5-transposase-in-atac-seq",
     
     "relUrl": "/doc/bioinformatics/atac-seq#role-of-tn5-transposase-in-atac-seq"
-  },"2": {
-    "doc": "ATAC-seq",
-    "title": "How to process ATAC-seq data (Frazer Lab Pipeline)",
-    "content": ". | Align (BWA and STAR produce very similar results) reference=/reference/private/STAR/hg19_gencode34 STAR --runThreadN 8 --alignIntronMax 1 --genomeDir $reference \\ --genomeLoad NoSharedMemory --readFilesCommand zcat \\ --readFilesIn ${dir}/R1.fastq.gz ${dir}/R2.fastq.gz \\ --outSAMattributes All --outSAMunmapped Within \\ --outSAMattrRGline ID:1 PL:ILLUMINA PU:CARDIPS LB:${id} SM:${id} \\ --outFilterMultimapNmax 20 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 \\ --seedSearchStartLmax 20 --outFilterScoreMinOverLread 0.1 --outFilterMatchNminOverLread 0.1 \\ --outSAMtype BAM Unsorted --outFileNamePrefix ${out_dir}/ . | Sort. Fixmate. Mark duplicates samtools sort -n -m 2G -@ 8 $bam -o ${dir}/${name}.nsorted.bam samtools fixmate -m -@ 8 ${dir}/${name}.nsorted.bam ${dir}/${name}.fixmate.bam samtools sort -m 2G -@ 8 -o ${dir}/${name}.sorted.bam ${dir}/${name}.fixmate.bam samtools markdup -@ 8 ${dir}/${name}.sorted.bam ${out_dir}/${name}.mdup.bam samtools index -@ 8 ${out_dir}/${name}.mdup.bam . | Optional: Get mapping stats (duplicates, chrM reads, etc.) samtools flagstat -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.flagstat samtools idxstats -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.idxstats samtools stats -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.stats . | Remove duplicates (-F 1024). Filter reads with mapping quality &gt; 20 (-q 20). Keep reads in proper pair (-f 2). Keep fragments between 38-2000 bp. chrs=(`seq 1 22` X Y) chrs=chr`echo ${chrs[@]} | sed 's/ / chr/g'` samtools view -h -q 20 -f 2 -F 1024 ${out_dir}/${name}.mdup.bam $chrs |\\ awk 'function abs(v) {return v &lt; 0 ? -v : v}; substr($0,1,1)==\"@\" || (abs($9) &gt;= 38 &amp;&amp; abs($9) &lt;= 2000)' |\\ samtools view -b -@ 4 &gt; ${out_dir}/${name}.filt.bam . | Index samtools index ${out_dir}/${name}.filt.bam . | Call narrow peaks macs2 callpeak -f BAMPE -g hs -t ${out_dir}/${name}.filt.bam -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --call-summits . | Call broad peaks macs2 callpeak -f BAMPE -g hs -t ${out_dir}/${name}.filt.bam -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --broad . | Count reads in promoters samtools view -c -L ${promoters_bed} ${out_dir}/${name}.filt.bam &gt; ${out_dir}/reads_in_promoter.txt . | Convert peak file to saf (peaks2saf.pl). Count reads in each peak (featureCounts). cat $peak | peaks2saf.pl &gt; ${saf} featureCounts -p -T 4 --donotsort -F SAF -a ${saf} -o ${out_file} ${out_dir}/${name}.filt.bam . | . Next steps: . | Remove peaks in blacklisted regions (from ENCODE) | TMM normalize read counts using edgeR | Generate consensus peaks by merging peaks across samples or selecting a subsample of high-quality samples and call peaks from their merged bam files. | . ",
-    "url": "/doc/bioinformatics/atac-seq#how-to-process-atac-seq-data-frazer-lab-pipeline",
+  },"8": {
+    "doc": "1.1 ATAC-seq",
+    "title": "1.1 ATAC-seq",
+    "content": " ",
+    "url": "/doc/bioinformatics/atac-seq",
     
-    "relUrl": "/doc/bioinformatics/atac-seq#how-to-process-atac-seq-data-frazer-lab-pipeline"
-  },"3": {
-    "doc": "Bun Rieu",
-    "title": "Bun Rieu",
-    "content": "Bun rieu, also known as tomato noodle soup . Ingredients: . | 4 chicken drumsticks | 6 cups of water | 2 lemongrass stalks (cut in half, peeled, and beatened) | 1 tbsp Instant Tom Yum sauce | 2 roma tomatoes | 1/8 tsp MSG | 3 tsp sugar | 3 tsp salt | Tofu cubes (as many as you want; fried or not, both are delicious) | . Steps: . | Boil water with chicken drumsticks, MSG, sugar, and salt | After water boils, add lemongrass. | Cover pot with lid and simmer for 12 min | Turn off heat. Place pot to the side and let sit for ~12 min. | Add tomatos, tofu, and tom yum sauce. Mix. | Serve with ~1/4 tbsp shrimp paste! | . ",
+    "relUrl": "/doc/bioinformatics/atac-seq"
+  },"9": {
+    "doc": "1.1.2 Call Peaks (MACS2)",
+    "title": "Calling Peaks using MACS2",
+    "content": ". | Call narrow peaks name=`basename $bam \".bam\"` macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --call-summits . | Call broad peaks macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --broad . | Count reads in promoters samtools view -c -L ${promoters_bed} ${bam} &gt; ${out_dir}/reads_in_promoter.txt . | Convert peak file to saf (peaks2saf.pl). Count reads in each peak (featureCounts). cat ${name}.narrowPeaks | peaks2saf.pl &gt; ${saf} featureCounts -p -T 4 --donotsort -F SAF -a ${saf} -o ${name}.narrowPeaks.counts ${bam} . | . Next steps: . | Remove peaks in blacklisted regions (from ENCODE) | TMM normalize read counts using edgeR | Generate consensus peaks by merging peaks across samples or selecting a subsample of high-quality samples and call peaks from their merged bam files. | . ",
+    "url": "/doc/bioinformatics/atac_call_peaks#calling-peaks-using-macs2",
+    
+    "relUrl": "/doc/bioinformatics/atac_call_peaks#calling-peaks-using-macs2"
+  },"10": {
+    "doc": "1.1.2 Call Peaks (MACS2)",
+    "title": "1.1.2 Call Peaks (MACS2)",
+    "content": " ",
+    "url": "/doc/bioinformatics/atac_call_peaks",
+    
+    "relUrl": "/doc/bioinformatics/atac_call_peaks"
+  },"11": {
+    "doc": "1.1.1 Data Processing using STAR",
+    "title": "ATAC-seq Processing using STAR",
+    "content": ". | Make scratch directory dir=`mktemp -d -p scratch` . | Align id= #sample id project= #project_id out_dir= #ouput directory reference=/reference/private/STAR/hg19_gencode34 STAR \\ --runThreadN 8 \\ --alignIntronMax 1 \\ --genomeDir $reference \\ --genomeLoad NoSharedMemory \\ --readFilesCommand zcat \\ --readFilesIn ${dir}/R1.fastq.gz ${dir}/R2.fastq.gz \\ --outSAMattributes All \\ --outSAMunmapped Within \\ --outSAMattrRGline ID:1 PL:ILLUMINA PU:${project} LB:${id} SM:${id} \\ --outFilterMultimapNmax 20 \\ --outFilterMismatchNmax 999 \\ --outFilterMismatchNoverLmax 0.04 \\ --seedSearchStartLmax 20 \\ --outFilterScoreMinOverLread 0.1 \\ --outFilterMatchNminOverLread 0.1 \\ --outSAMtype BAM Unsorted \\ --outFileNamePrefix ${out_dir}/ . | Sort. Fixmate. Mark duplicates. bam=Aligned.out.bam name=`basename $bam \".bam\"` samtools sort -n -m 2G -@ 8 $bam -o ${dir}/${name}.nsorted.bam samtools fixmate -m -@ 8 ${dir}/${name}.nsorted.bam ${dir}/${name}.fixmate.bam samtools sort -m 2G -@ 8 -o ${dir}/${name}.sorted.bam ${dir}/${name}.fixmate.bam samtools markdup -@ 8 ${dir}/${name}.sorted.bam ${out_dir}/${name}.mdup.bam samtools index -@ 8 ${out_dir}/${name}.mdup.bam . | Get mapping stats (duplicates, chrM reads, etc.) samtools flagstat -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.flagstat samtools idxstats -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.idxstats samtools stats -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.stats . | Filter reads . | Remove duplicates (-F 1024) | Retain reads with mapping quality &gt; 20 (-q 20) | Retain reads in proper pair (-f 2) | Retain fragments between 38-2000 bp. chrs=(`seq 1 22` X Y) chrs=chr`echo ${chrs[@]} | sed 's/ / chr/g'` samtools view -h -q 20 -f 2 -F 1024 ${out_dir}/${name}.mdup.bam $chrs |\\ awk 'function abs(v) {return v &lt; 0 ? -v : v}; substr($0,1,1)==\"@\" || (abs($9) &gt;= 38 &amp;&amp; abs($9) &lt;= 2000)' |\\ samtools view -b -@ 4 &gt; ${out_dir}/${name}.filt.bam . | . | Index samtools index ${out_dir}/${name}.filt.bam . | . ",
+    "url": "/doc/bioinformatics/atac_processing_star#atac-seq-processing-using-star",
+    
+    "relUrl": "/doc/bioinformatics/atac_processing_star#atac-seq-processing-using-star"
+  },"12": {
+    "doc": "1.1.1 Data Processing using STAR",
+    "title": "1.1.1 Data Processing using STAR",
+    "content": " ",
+    "url": "/doc/bioinformatics/atac_processing_star",
+    
+    "relUrl": "/doc/bioinformatics/atac_processing_star"
+  },"13": {
+    "doc": "1.1.3 TMM Normalization",
+    "title": "TMM Normalization",
+    "content": "R version 4.2.1 . if (!require(\"BiocManager\", quietly = TRUE)) install.packages(\"BiocManager\") BiocManager::install(\"edgeR\") library(edgeR) library(dplyr) library(data.table) # 0. Get sample ids meta = fread(\"metadata.txt\", row.names = F) # 1. Initialize counts matrix # example filename: counts/sample1.counts file = paste(\"counts\", paste(meta$phenotype_id, \"counts\", sep = \".\"), sep = \"/\") counts = fread(file, data.table = F) colnames(counts)[7] = meta$phenotype_id[1] # 2. Cbind counts from other samples for (sample in meta$phenotype_id[2:length(meta$phenotype_id)]) { file = paste(\"counts\", paste(sample, \"counts\", sep = \".\"), sep = \"/\") this = fread(file, data.table = F) colnames(this)[7] = sample counts = merge(counts, this, by = c(\"Geneid\", \"Chr\", \"Start\", \"End\", \"Strand\", \"Length\")) } fwrite(counts, \"phenotype_counts_matrix.txt\", row.names = F, sep = \"\\t\") # 3. TMM Normalize # https://www.biostars.org/p/317701/ to_tmm = counts %&gt;% select(-Chr, -Start, -End, -Strand, -Length) dge = DGEList(counts=as.matrix(to_tmm), group=colnames(to_tmm)) dge = calcNormFactors(dge, method = \"TMM\") tmm = data.frame(cpm(dge)) fwrite(tmm, \"phenotype_tmm_matrix.txt\" row.names = F, sep = \"\\t\") . ",
+    "url": "/doc/bioinformatics/atac_tmm_normalization#tmm-normalization",
+    
+    "relUrl": "/doc/bioinformatics/atac_tmm_normalization#tmm-normalization"
+  },"14": {
+    "doc": "1.1.3 TMM Normalization",
+    "title": "1.1.3 TMM Normalization",
+    "content": " ",
+    "url": "/doc/bioinformatics/atac_tmm_normalization",
+    
+    "relUrl": "/doc/bioinformatics/atac_tmm_normalization"
+  },"15": {
+    "doc": "2.1 Bun Rieu",
+    "title": "Tom Yum Tomato Noodle Soup (Bun Rieu)",
+    "content": "Ingredients: . | 4 chicken drumsticks | 6 cups of water | 2 lemongrass stalks (cut in half, peeled, and beatened) | 1 tbsp Instant Tom Yum sauce | 2 roma tomatoes | 1/8 tsp MSG | 3 tsp sugar | 3 tsp salt | Tofu cubes (as many as you want; fried or not, both are delicious) | . Steps: . | Boil water with chicken drumsticks, MSG, sugar, and salt | After water boils, add lemongrass. | Cover pot with lid and simmer for 12 min | Turn off heat. Place pot to the side and let sit for ~12 min. | Add tomatos, tofu, and tom yum sauce. Mix. | Serve with ~1/4 tbsp shrimp paste! | . ",
+    "url": "/docs/other/bun_rieu#tom-yum-tomato-noodle-soup-bun-rieu",
+    
+    "relUrl": "/docs/other/bun_rieu#tom-yum-tomato-noodle-soup-bun-rieu"
+  },"16": {
+    "doc": "2.1 Bun Rieu",
+    "title": "2.1 Bun Rieu",
+    "content": " ",
     "url": "/docs/other/bun_rieu",
     
     "relUrl": "/docs/other/bun_rieu"
-  },"4": {
-    "doc": "Che Chuoi",
-    "title": "Che Chuoi",
-    "content": "Che chuoi, also known as banana coconut pudding . Ingredients: . | 1 pound cubed taro | 0.5 pound cubed cassava (~$2.5/pound at grocery store, pre-peeled) | 1 packet vanilla sugar | 5 tbsp sugar | half of 1/3 cup peeled mung bean (yellow) | half of 1/3 cup dried tapioca pearl (pink and green rectangle) | half of 1/3 cup tapioca pearl | 5 cups water | 1 cup coconut cream | 0.5 tsp salt | . Steps: . | Wash taro and cassava. Cut into cubes. | Boil 4 cups of water. Cook cassava in boiling water for 8 minutes. Drain. | Wash dried tapioca pearl and mung bean. | Boil 5 cups of water. Add dried tapioca pearl and mung bean. Simmer for 10 minutes. | Add washed tapioca pearl and simmer for 15 more minutes | Add taro and simmer for 8 minutes | Add sugar, coconut cream, vanilla sugar, and salt | Serve hot or cold! Delicious at both temps! | . ",
+  },"17": {
+    "doc": "2.3 Che Chuoi",
+    "title": "Banana Coconut Pudding (Che Chuoi)",
+    "content": "Ingredients: . | 1 pound cubed taro | 0.5 pound cubed cassava (~$2.5/pound at grocery store, pre-peeled) | 1 packet vanilla sugar | 5 tbsp sugar | half of 1/3 cup peeled mung bean (yellow) | half of 1/3 cup dried tapioca pearl (pink and green rectangle) | half of 1/3 cup tapioca pearl | 5 cups water | 1 cup coconut cream | 0.5 tsp salt | . Steps: . | Wash taro and cassava. Cut into cubes. | Boil 4 cups of water. Cook cassava in boiling water for 8 minutes. Drain. | Wash dried tapioca pearl and mung bean. | Boil 5 cups of water. Add dried tapioca pearl and mung bean. Simmer for 10 minutes. | Add washed tapioca pearl and simmer for 15 more minutes | Add taro and simmer for 8 minutes | Add sugar, coconut cream, vanilla sugar, and salt | Serve hot or cold! Delicious at both temps! | . ",
+    "url": "/docs/other/che_chuoi#banana-coconut-pudding-che-chuoi",
+    
+    "relUrl": "/docs/other/che_chuoi#banana-coconut-pudding-che-chuoi"
+  },"18": {
+    "doc": "2.3 Che Chuoi",
+    "title": "2.3 Che Chuoi",
+    "content": " ",
     "url": "/docs/other/che_chuoi",
     
     "relUrl": "/docs/other/che_chuoi"
-  },"5": {
-    "doc": "Set up Github",
+  },"19": {
+    "doc": "1.4 Setting up GitHub",
     "title": "What is Github?",
     "content": "GitHub is a web-based platform used for version control and collaboration on software projects. It provides developers with a centralized location to store, manage, and track changes to their code. GitHub utilizes the Git version control system, which allows multiple people to work on the same codebase simultaneously while keeping track of changes and facilitating collaboration. ",
     "url": "/docs/bioinformatics/github#what-is-github",
     
     "relUrl": "/docs/bioinformatics/github#what-is-github"
-  },"6": {
-    "doc": "Set up Github",
+  },"20": {
+    "doc": "1.4 Setting up GitHub",
     "title": "Set up Git",
     "content": ". | Download . | Configure name and email for identification . | . git config --global user.name \"Your name\" git config --global user.email \"your@email.com\" . | Initialize repository git Initialize . Check by . ls -a . | Check status Check if there are untracked files or staged files that need to be added to repo git status . | Stage files git add filename1 filename2 . | Making commits git commit -m \"Commit message\" . | Check history of commit git log . | . ",
     "url": "/docs/bioinformatics/github#set-up-git",
     
     "relUrl": "/docs/bioinformatics/github#set-up-git"
-  },"7": {
-    "doc": "Set up Github",
-    "title": "Set up Github",
+  },"21": {
+    "doc": "1.4 Setting up GitHub",
+    "title": "1.4 Setting up GitHub",
     "content": " ",
     "url": "/docs/bioinformatics/github",
     
     "relUrl": "/docs/bioinformatics/github"
-  },"8": {
+  },"22": {
     "doc": "Home",
     "title": "Hello! I’m Jennifer",
     "content": " ",
     "url": "/#hello-im-jennifer",
     
     "relUrl": "/#hello-im-jennifer"
-  },"9": {
+  },"23": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "/",
     
     "relUrl": "/"
-  },"10": {
-    "doc": "Experiments",
-    "title": "Experiments",
-    "content": " ",
-    "url": "/docs/experiments",
-    
-    "relUrl": "/docs/experiments"
-  },"11": {
-    "doc": "Other",
-    "title": "Other",
+  },"24": {
+    "doc": "2. Family Recipes",
+    "title": "2. Family Recipes",
     "content": " ",
     "url": "/docs/other",
     
     "relUrl": "/docs/other"
-  },"12": {
-    "doc": "Bioinformatics",
-    "title": "Bioinformatics",
+  },"25": {
+    "doc": "1. Bioinformatics Tutorials",
+    "title": "1. Bioinformatics Tutorials",
     "content": " ",
     "url": "/docs/bioinformatics",
     
     "relUrl": "/docs/bioinformatics"
-  },"13": {
-    "doc": "Making Lentivirus",
-    "title": "Making Lentivirus",
-    "content": "This protocol is for making 3x600ul of virus . Day 0 . | Seed 293T cells at 2x10^6 cells/well in 6-well plate (2ml media/well) | Prepare diluted plasmids at 100ng/ul | . Day 1 . | Prepare eppendorfs for Tube A and Tube B | To Tube A, add OptiMEM and Lipofectamine according to the instructions . | Total volumn = 500 ul | . | To Tube B, add OptiMem, packaging, and p3000 according to the instructions . | If you’re doing more than one batch of virsus, I would create master mixes of both A and B and aliquot to their tubes. | Total volumn = 500 ul | . | To Tube A, add 1.4ug DNA | To Tube B, add Tube A mixture, dropwise. Gently mix well. | Total volumn = now 1ml | Add plasmid to lipofectamine, not the other way around! | . | Incubate A+B mixture at RT, 15 min | Meanwhile, remove 1ml of media from each well, leaving only 1 ml of media left | Add 1ml of A+B mixture to well, dropwise. 293T detaches easily so need to do very gently | Incubate cells at 37C, 6h | Remove old media and add 2ml fresh media (DMEM). Add media very slowly to not detach the cells | Incubate cells at 37C, 48h | . Day 4 . | Collect media into 15ml conical vials | Spin down to bring cells to bottom | Aliquot 600ul supernatant to 1.7ml eppendorfs | Concentrate if needed | Store viruses at -80C | . | Sanity check: check each well under microscope for fluorescence in 293T | . ",
-    "url": "/docs/experiments/making_lentivirus",
+  },"26": {
+    "doc": "2.2 Peanut Sticky Rice",
+    "title": "Peanut Coconut Sticky Rice (Xoi Dau)",
+    "content": "Ingredients: . | 1 lb peanuts (double sticky rice, equiv to 24oz) | 4 cups water | 1tsp salt | 12 oz sticky rice | 8 oz water | 0.5tsp salt (equiv to 1 cup water) | . Steps : . | Wash peanuts and cook in 4 cups of water and 1 tsp salt in an instant pot using the “Beans” function (35-40min) | Natural release the pressure and drain the peanuts (DO NOT WASH PEANUTS) | Wash and cook 12 oz of sticky rice in 8 oz water with peanuts and 0.5tsp salt for 10 min | Natural release for 2 min and immediate release pressure using chopsticks | Mix. Place lid back on and let it “cook” for another 5 min | Mix. Add 1 cup of coconut flakes | Store in a container and cover so the rice would not dry out | . ",
+    "url": "/docs/other/peanut_sticky_rice#peanut-coconut-sticky-rice-xoi-dau",
     
-    "relUrl": "/docs/experiments/making_lentivirus"
-  },"14": {
-    "doc": "RNA-seq",
+    "relUrl": "/docs/other/peanut_sticky_rice#peanut-coconut-sticky-rice-xoi-dau"
+  },"27": {
+    "doc": "2.2 Peanut Sticky Rice",
+    "title": "2.2 Peanut Sticky Rice",
+    "content": " ",
+    "url": "/docs/other/peanut_sticky_rice",
+    
+    "relUrl": "/docs/other/peanut_sticky_rice"
+  },"28": {
+    "doc": "2.5 Chicken Pho",
+    "title": "Chicken Pho (Pho Ga)",
+    "content": "Ingredients: . | 4 chicken drum sticks | 6 cups water | 1.8 tsp MSG | 3 tsp sugar | 3 tsp salt | 5 cloves | 1 tsp coriander | 1 tsp fennel seeds | 1 star anise | 1 cinnamon stick | . Steps : . | Boil 4 chicken drum sticks in 6 cups of water with 3 tsp sugar and 3 tsp salt | Once it starts boiling, add clove, coriander, fennel seeds, star anise, and cinnamon | Cover and simmer for 12 min | Turn off heat. Move the pot to the side. Keep covered and “cook” for another 12 min | Serve with cilantro, slices of red onions, hoisin sauce, and siracha | . ",
+    "url": "/docs/other/pho_ga#chicken-pho-pho-ga",
+    
+    "relUrl": "/docs/other/pho_ga#chicken-pho-pho-ga"
+  },"29": {
+    "doc": "2.5 Chicken Pho",
+    "title": "2.5 Chicken Pho",
+    "content": " ",
+    "url": "/docs/other/pho_ga",
+    
+    "relUrl": "/docs/other/pho_ga"
+  },"30": {
+    "doc": "1.2 RNA-seq",
     "title": "RNA-seq",
     "content": "Last updated: 12-19-2023 . RNA-seq, or RNA sequencing, is a technique used in molecular biology to analyze the transcriptome of a sample. The transcriptome refers to the complete set of RNA molecules, including mRNA (messenger RNA), rRNA (ribosomal RNA), tRNA (transfer RNA), and other non-coding RNA produced by the cells of an organism or a tissue. Most RNA-seq data measures mRNA levels, and specialized protocols are used for each type of RNA molecule being measured. ",
+    "url": "/doc/bioinformatics/rna-seq#rna-seq",
+    
+    "relUrl": "/doc/bioinformatics/rna-seq#rna-seq"
+  },"31": {
+    "doc": "1.2 RNA-seq",
+    "title": "1.2 RNA-seq",
+    "content": " ",
     "url": "/doc/bioinformatics/rna-seq",
     
     "relUrl": "/doc/bioinformatics/rna-seq"
-  },"15": {
-    "doc": "RNA-seq",
-    "title": "How to process RNA-seq data (Frazer Lab Pipeline)",
+  },"32": {
+    "doc": "1.2.1 Data Processing and Expression Quantification",
+    "title": "RNA-seq Data Processing (Frazer Lab Pipeline)",
     "content": ". | Make scratch directory dir=`mktemp -d -p scratch` . | Set reference reference_star=/reference/private/STAR/hg38_gencode44/reference reference_rsem=/reference/private/RSEM/hg38_gencode44/reference/hg38_gencode44 . | STAR Alignment date &gt;&amp; 2 in_files=( ${dir}/R1.fastq ${dir}/R2.fastq ) cmd=\"STAR \\ --runThreadN 12 \\ --genomeDir ${reference_star} \\ --genomeLoad NoSharedMemory \\ --readFilesIn ${in_files[@]} \\ --outSAMattributes All \\ --outSAMunmapped Within \\ --outSAMattrRGline ID:1 PL:ILLUMINA PU:CARDIPS LB:${name} SM:${name} \\ --outFilterMultimapNmax 20 \\ --outFilterMismatchNmax 999 \\ --alignIntronMin 20 \\ --alignIntronMax 1000000 \\ --alignMatesGapMax 1000000 \\ --outSAMtype BAM Unsorted \\ --outFileNamePrefix ${dir}/ \\ --quantMode TranscriptomeSAM\" echo $cmd &gt;&amp; 2; eval $cmd . | Sort. Fill mate coordinates. Index date &gt;&amp; 2 cmd=\"samtools sort -m 2G -n -o ${dir}/Aligned.out.namesorted.bam -@ 12 ${dir}/Aligned.out.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools fixmate -@ 12 -m ${dir}/Aligned.out.namesorted.bam ${dir}/Aligned.out.namesorted.fixmate.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools sort -m 2G -o ${dir}/Aligned.out.sorted.bam -@ 12 ${dir}/Aligned.out.namesorted.fixmate.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools index -@ 12 ${dir}/Aligned.out.sorted.bam ${dir}/Aligned.out.sorted.bam.bai\" echo $cmd &gt;&amp; 2; eval $cmd . | Mark duplicates date &gt;&amp; 2 cmd=\"samtools markdup -@ 12 -s -T ${dir}/temp ${dir}/Aligned.out.sorted.bam ${dir}/Aligned.out.sorted.mdup.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools index -@ 12 ${dir}/Aligned.out.sorted.mdup.bam ${dir}/Aligned.out.sorted.mdup.bam.bai\" echo $cmd &gt;&amp; 2; eval $cmd . | Get mapping stats (total number reads, total mapped, total paired reads, total dupliciates, etc.) date &gt;&amp; 2 cmd=\"samtools flagstat -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.flagstat\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools idxstats -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.idxstats\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools stats -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.stats\" echo $cmd &gt;&amp; 2; eval $cmd . | Run RSEM to generate read counts, TPM, and RPKM. Uses Transcriptome BAM file generated from STAR. date &gt;&amp; 2 cmd=\"rsem-calculate-expression \\ --bam \\ --num-threads 16 \\ --no-bam-output \\ --seed 3272015 \\ --estimate-rspd \\ --forward-prob 0\" if [ ${#in_files[@]} -gt 1 ]; then cmd=$cmd\" --paired-end\" fi cmd=$cmd\" ${dir}/Aligned.toTranscriptome.out.bam ${reference_rsem} ${dir}/rsem\" echo $cmd &gt;&amp; 2; eval $cmd . | Reformat header for PICARD date &gt;&amp; 2 cmd=\"samtools view -H ${dir}/Aligned.out.sorted.mdup.bam | sed 's,^@RG.*,@RG\\tID:None\\tSM:None\\tLB:None\\tPL:Illumina,g' | samtools reheader - ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.reheader.bam\" echo $cmd &gt;&amp; 2; eval $cmd . | Run PICARD to get more stats (pct_mrna_bases, pct_intergenic_bases, etc.) date &gt;&amp; 2 refFlat=/reference/public/UCSC/hg38/refFlat.txt.gz cmd=\"picard CollectRnaSeqMetrics \\ I=${dir}/Aligned.out.sorted.mdup.reheader.bam \\ O=${dir}/picard.RNA_Metrics \\ VALIDATION_STRINGENCY=SILENT \\ REF_FLAT=$refFlat \\ STRAND=NONE\" echo $cmd &gt;&amp; 2; eval $cmd . | . ",
-    "url": "/doc/bioinformatics/rna-seq#how-to-process-rna-seq-data-frazer-lab-pipeline",
+    "url": "/doc/bioinformatics/rna_processing#rna-seq-data-processing-frazer-lab-pipeline",
     
-    "relUrl": "/doc/bioinformatics/rna-seq#how-to-process-rna-seq-data-frazer-lab-pipeline"
-  },"16": {
-    "doc": "LD Score Regression",
+    "relUrl": "/doc/bioinformatics/rna_processing#rna-seq-data-processing-frazer-lab-pipeline"
+  },"33": {
+    "doc": "1.2.1 Data Processing and Expression Quantification",
+    "title": "1.2.1 Data Processing and Expression Quantification",
+    "content": " ",
+    "url": "/doc/bioinformatics/rna_processing",
+    
+    "relUrl": "/doc/bioinformatics/rna_processing"
+  },"34": {
+    "doc": "1.2.2 Quality Control",
+    "title": "1.2.2 Quality Control",
+    "content": " ",
+    "url": "/doc/bioinformatics/rna_qc",
+    
+    "relUrl": "/doc/bioinformatics/rna_qc"
+  },"35": {
+    "doc": "1.2.0 Create RSEM Reference",
+    "title": "Create RSEM Reference",
+    "content": ". | Load software export PATH=/software/STAR-2.7.10b/bin/Linux_x86_64:$PATH export PATH=/software/STAR-2.7.10b/source/:$PATH . | Download conprehensive gene annotation GTF file from Gencode: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_45/gencode.v45.annotation.gtf.gz . | Download hg38 fasta reference from UCSC: https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz . | Unzip files gunzip gencode.v45.annotation.gtf.gz gunzip hg38.fa.gz . | Make reference rsem-prepare-reference --gtf gencode.v44.annotation.gtf \\ hg38.fa ${out_dir}/${prefix} . | . This command should output these files: . | ${prefix}.chrlist | ${prefix}.idx.fa | ${prefix}.seq | ${prefix}.transcripts.fa | ${prefix}.grp | ${prefix}.n2g.idx.fa | ${prefix}.ti | . Notes: . | https://deweylab.github.io/RSEM/rsem-prepare-reference.html | . Publication: . | Li B, Dewey CN. RSEM: accurate transcript quantification from RNA-Seq data with or without a reference genome. BMC bioinformatics. 2011 Dec;12:1-6. | https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-323 | . ",
+    "url": "/doc/bioinformatics/rna_rsem_reference#create-rsem-reference",
+    
+    "relUrl": "/doc/bioinformatics/rna_rsem_reference#create-rsem-reference"
+  },"36": {
+    "doc": "1.2.0 Create RSEM Reference",
+    "title": "1.2.0 Create RSEM Reference",
+    "content": " ",
+    "url": "/doc/bioinformatics/rna_rsem_reference",
+    
+    "relUrl": "/doc/bioinformatics/rna_rsem_reference"
+  },"37": {
+    "doc": "1.2.0 Create STAR Reference",
+    "title": "Create STAR Reference",
+    "content": ". | Load software export PATH=/software/STAR-2.7.10b/bin/Linux_x86_64:$PATH export PATH=/software/STAR-2.7.10b/source/:$PATH . | Download conprehensive gene annotation GTF file from Gencode: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_45/gencode.v45.annotation.gtf.gz . | Download hg38 fasta reference from UCSC: https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz . | Unzip files gunzip gencode.v45.annotation.gtf.gz gunzip hg38.fa.gz . | Make reference STAR --runThreadN 32 --runMode genomeGenerate --genomeDir ${out_dir} \\ --genomeFastaFiles hg38.fa --sjdbGTFfile gencode.v44.annotation.gtf \\ --sjdbOverhang 99 . | . This command should output these files: . | chrLength.txt | chrName.txt | exonGeTrInfo.tab | geneInfo.tab | genomeParameters.txt | SA | sjdbInfo.txt | sjdbList.out.tab | chrNameLength.txt | chrStart.txt | exonInfo.tab | Genome | Log.out | SAindex | sjdbList.fromGTF.out.tab | transcriptInfo.tab | . Notes: . | https://www.reneshbedre.com/blog/star-aligner.html | . References on sjdbOverhang: . | https://groups.google.com/g/rna-star/c/h9oh10UlvhI/m/BfSPGivUHmsJ | https://groups.google.com/g/rna-star/c/pHKU0vGGvGk | . Actual script: . | scripts/rna_seq/star_reference.pbx | . ",
+    "url": "/doc/bioinformatics/rna_star_reference#create-star-reference",
+    
+    "relUrl": "/doc/bioinformatics/rna_star_reference#create-star-reference"
+  },"38": {
+    "doc": "1.2.0 Create STAR Reference",
+    "title": "1.2.0 Create STAR Reference",
+    "content": " ",
+    "url": "/doc/bioinformatics/rna_star_reference",
+    
+    "relUrl": "/doc/bioinformatics/rna_star_reference"
+  },"39": {
+    "doc": "1.3 LD Score Regression",
     "title": "LD Score Regression (LDSC)",
     "content": "Original tutorial: https://github.com/bulik/ldsc/wiki . | Prepare GWAS input with columns SNP (rsid), POS, N, N_CASE, N_CONTROL, BETA, SE, MAF Tip: Make sure that MAF, N, N_CASE, and N_CONTROL have no non-numeric values and remove all empty values . | Prepare annotations input For easier, faster, and cleaner implementation, I recommend using SNPs from baseline. The program will output an error if the variants are not in the same order across the annotations, so it is easier to use SNPs from the baseline files (with the same order) and annotate them with your annotations. | Calculate LD scores python ldsc.py \\ --l2 \\ --ld-wind-cm 1 \\ --yes-really \\ --bfile plink_files/1000G.EUR.hg38.${chr} \\ --annot ${annot_dir}/${chr}.annot.gz \\ --out ${out_dir}/${chr} \\ --print-snps baseline.${chr}.snps . | Calculate heritability enrichment python ldsc.py \\ --h2 ${trait_name}.sumstats.gz \\ --ref-ld-chr ${out_dir}/,baseline_v1.2/baseline. \\ --w-ld-chr weights/weights.hm3_noMHC. \\ --overlap-annot \\ --frqfile-chr 1000G_Phase3_frq/1000G.EUR.QC. \\ --out ${out_dir}/${trait_name} . | . ",
     "url": "/doc/bioinformatics/run-ldsc#ld-score-regression-ldsc",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#ld-score-regression-ldsc"
-  },"17": {
-    "doc": "LD Score Regression",
-    "title": "LD Score Regression",
+  },"40": {
+    "doc": "1.3 LD Score Regression",
+    "title": "1.3 LD Score Regression",
     "content": " ",
     "url": "/doc/bioinformatics/run-ldsc",
     
     "relUrl": "/doc/bioinformatics/run-ldsc"
-  },"18": {
-    "doc": "Steamed Egg Cake",
-    "title": "Steamed Egg Cake",
+  },"41": {
+    "doc": "2.4 Steamed Egg Cake",
+    "title": "Steamy Egg Cake (Trung Hap)",
     "content": "Ingredients: . | 1 pound ground meat (pre-seasoned with sugar, MSG, and pepper) | 5 whole eggs | 1 bunch of bean thread noodles | 1 tbsp sugar | 1/8 tsp MSG | Pepper (trust your gut) | 1 small onion | 2.5 tbsp fish sauce | 0.25 tbsp chopped thai chilli peppers | . Steps : . | Soak noodles in boiling water for 15 min | Mix all ingredients | Steam for 30 min | . Notes: . | Most popular bean thread noodles are the ones in a neon pink package | Use glassware to steam the egg cake | . ",
+    "url": "/docs/other/trung_hap#steamy-egg-cake-trung-hap",
+    
+    "relUrl": "/docs/other/trung_hap#steamy-egg-cake-trung-hap"
+  },"42": {
+    "doc": "2.4 Steamed Egg Cake",
+    "title": "2.4 Steamed Egg Cake",
+    "content": " ",
     "url": "/docs/other/trung_hap",
     
     "relUrl": "/docs/other/trung_hap"
-  },"19": {
-    "doc": "Build a website (Jekyll)",
+  },"43": {
+    "doc": "1.5 Build a website (Jekyll)",
     "title": "Build a website with Jekyll template",
     "content": ". | Create a GitHub repository | Clone repository to local git clone https://github.com/your-username/respository-name.git . | Install Ruby To check if you have Ruby installed, run ruby -v . If not, refer to the Ruby documentation for instructions (https://www.ruby-lang.org). | Install Bundler gem install bundler . | Set up Just the Docs template cd repository-name . Create a file named “Gemfile” and add the following lines . source \"https://rubygems.org\" gem \"github-pages\", group: :jekyll_plugins . Save and close “Gemfile”. Then, create a file named “_config.yml” and add the following lines . remote_theme: pmarsceill/just-the-docs title: My Docs description: Your site description . Save and close “_config.yml”. | Install webrick gem install webrick . If you have Ruby 3.0, you’ll need to add to Gemfile because it’s no longer provided. bundle add webrick . | Install the required dependencies bundle install . | Build and serve website bundle exec jekyll serve . Jekyll will start the local server and output a URL where you can view your website real-time. Open your web browser and visit the provided URL. | . ",
     "url": "/doc/bioinformatics/website#build-a-website-with-jekyll-template",
     
     "relUrl": "/doc/bioinformatics/website#build-a-website-with-jekyll-template"
-  },"20": {
-    "doc": "Build a website (Jekyll)",
-    "title": "Build a website (Jekyll)",
+  },"44": {
+    "doc": "1.5 Build a website (Jekyll)",
+    "title": "1.5 Build a website (Jekyll)",
     "content": " ",
     "url": "/doc/bioinformatics/website",
     
     "relUrl": "/doc/bioinformatics/website"
-  },"21": {
-    "doc": "Western blot",
-    "title": "Western blot",
-    "content": "Western blot protocol for adherent cells . Lysis buffer with protease and phosphatase inhibitor . | 10 ml lysis buffer | 1 protease and phosphatase tablet | Vortex to mix and dissolve | . | Place culture dish on ice | Aspirate media | Wash cells with PBS (5 ml for 10 ml or 1 ml for 6-well) | Aspirate PBS | Add PBS to dish | Scrap cells off dish and transfer cells into a conical vial | Centrifuge @ ~14-17,000 g for 20 min in 4C | Remove supernatent | Re-suspend cells in ~1.5ml PBS and transfer into a microcentrifuge tube | Centrifuge @ ~14-17,000 g for 20 min in 4C | Resuspend cells in 500 ul of lysis buffer | Sonicate cells for 10-15 seconds @ 4C | Centrifuge @ ~14-17,000 g for 20 min in 4C | Transfer supernantent to a fresh microcentrifuge tube without disturbing the pellet. Discard pellet. | Determine protein concentration using BCA protein assay | Add 50ul of 10x SDS sample buffer into lysate to dilute it to 1x | Denature proteins by boiling @ 95-100C for 5 min | Load 1-50 ug of protein onto SDS-page well. Amount of protein to load depends on protein abundance and how sensitive the antibody is. | . ",
-    "url": "/docs/experiments/making_lentivirus",
-    
-    "relUrl": "/docs/experiments/making_lentivirus"
   }
 }

@@ -1,9 +1,9 @@
 ---
 layout: default
-parent: Bioinformatics
+parent: 1. Bioinformatics Tutorials
 permalink: /doc/bioinformatics/run-ldsc
 nav_order: 3
-title: LD Score Regression
+title: 1.3 LD Score Regression
 ---
 
 # LD Score Regression (LDSC)

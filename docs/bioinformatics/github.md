@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Set up Github
-parent: Bioinformatics
+title: 1.4 Setting up GitHub
+parent: 1. Bioinformatics Tutorials
 nav_order: 4
 permalink: /docs/bioinformatics/github
 ---

@@ -1,9 +1,9 @@
 ---
 layout: default
-parent: Bioinformatics
+parent: B1. Bioinformatics Tutorials
 permalink: /doc/bioinformatics/website
 nav_order: 5
-title: Build a website (Jekyll)
+title: 1.5 Build a website (Jekyll)
 ---
 
 # Build a website with Jekyll template
