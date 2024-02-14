@@ -4,7 +4,7 @@ permalink: /doc/bioinformatics/atac_call_peaks
 nav_order: 3
 parent: 1.1 ATAC-seq
 title: 1.1.2 Call Peaks (MACS2)
-grand_parent: 1. Bioinformatics Tutorials
+grand_parent: "1. Bioinformatics Tutorials 🧬"
 ---
 
 # Calling Peaks using MACS2

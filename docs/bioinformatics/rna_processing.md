@@ -3,7 +3,7 @@ layout: default
 nav_order: 3
 title: 1.2.1 Data Processing and Expression Quantification
 parent: 1.2 RNA-seq
-grand_parent: 1. Bioinformatics Tutorials
+grand_parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/rna_processing
 ---
 

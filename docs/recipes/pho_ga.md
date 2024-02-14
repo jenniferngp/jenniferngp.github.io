@@ -1,9 +1,9 @@
 ---
 layout: default
-title: 2.5 Chicken Pho
-parent: 2. Family Recipes 
+title: 3.5 Chicken Pho
+parent: "3. Cooking Recipes 😋"
 nav_order: 5
-permalink: /docs/other/pho_ga
+permalink: /docs/recipes/pho_ga
 ---
 
 # Chicken Pho (Pho Ga)

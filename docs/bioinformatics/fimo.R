@@ -6,6 +6,7 @@ nav_order: 1
 permalink: /docs/other/trung_hap
 ---
 
+
 1. Get the chromosome and positions for each SNP
 
 2. Set filename to write sequences to

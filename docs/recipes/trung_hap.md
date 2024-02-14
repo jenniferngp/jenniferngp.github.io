@@ -1,9 +1,9 @@
 ---
 layout: default
-title: 2.4 Steamed Egg Cake
-parent: 2. Family Recipes 
+title: 3.4 Steamed Egg Cake
+parent: "3. Cooking Recipes 😋"
 nav_order: 4
-permalink: /docs/other/trung_hap
+permalink: /docs/recipes/trung_hap
 ---
 
 # Steamy Egg Cake (Trung Hap)

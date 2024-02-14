@@ -3,7 +3,7 @@ layout: default
 nav_order: 3
 title: 1.2.0 Create RSEM Reference
 parent: 1.2 RNA-seq
-grand_parent: 1. Bioinformatics Tutorials
+grand_parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/rna_rsem_reference
 ---
 
@@ -44,7 +44,7 @@ This command should output these files:
 Notes:
 - https://deweylab.github.io/RSEM/rsem-prepare-reference.html
 
-Publication:
+Publications:
 
 - Li B, Dewey CN. RSEM: accurate transcript quantification from RNA-Seq data with or without a reference genome. BMC bioinformatics. 2011 Dec;12:1-6.
 - https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-323

@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: 1. Bioinformatics Tutorials
+parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/rna-seq
 nav_order: 2
 title: 1.2 RNA-seq

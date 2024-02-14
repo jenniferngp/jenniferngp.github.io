@@ -1,9 +1,9 @@
 ---
 layout: default
-parent: B1. Bioinformatics Tutorials
-permalink: /doc/bioinformatics/website
-nav_order: 5
-title: 1.5 Build a website (Jekyll)
+parent: "2. Github 🔀"
+permalink: /doc/github/website
+nav_order: 2
+title: 2.1 Build a website (Jekyll)
 ---
 
 # Build a website with Jekyll template

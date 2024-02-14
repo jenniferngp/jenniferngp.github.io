@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 2.3 Che Chuoi
-parent: 2. Family Recipes 
+title: 3.3 Banana Tapioca Dessert
+parent: "3. Cooking Recipes 😋"
 nav_order: 3
-permalink: /docs/other/che_chuoi
+permalink: /docs/recipes/che_chuoi
 ---
 
-# Banana Coconut Pudding (Che Chuoi)
+# Banana Tapioca Desert (Che Chuoi)
 
 ### Ingredients:
 

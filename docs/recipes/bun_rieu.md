@@ -1,9 +1,9 @@
 ---
 layout: default
-title: 2.1 Bun Rieu
-parent: 2. Family Recipes
+title: 3.1 Tomato Noodle Soup
+parent: "3. Cooking Recipes 😋"
 nav_order: 1
-permalink: /docs/other/bun_rieu
+permalink: /docs/recipes/bun_rieu
 ---
 
 # Tom Yum Tomato Noodle Soup (Bun Rieu)

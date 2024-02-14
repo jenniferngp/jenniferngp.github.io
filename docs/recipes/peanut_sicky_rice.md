@@ -1,9 +1,9 @@
 ---
 layout: default
-title: 2.2 Peanut Sticky Rice
-parent: 2. Family Recipes
+title: 3.2 Peanut Sticky Rice
+parent: "3. Cooking Recipes 😋"
 nav_order: 2
-permalink: /docs/other/peanut_sticky_rice
+permalink: /docs/recipes/peanut_sticky_rice
 ---
 
 # Peanut Coconut Sticky Rice (Xoi Dau)

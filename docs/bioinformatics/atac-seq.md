@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: 1. Bioinformatics Tutorials
+parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/atac-seq
 nav_order: 1
 title: 1.1 ATAC-seq
