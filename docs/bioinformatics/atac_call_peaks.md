@@ -9,6 +9,7 @@ grand_parent: "1. Bioinformatics Tutorials 🧬"
 
 # Calling Peaks using MACS2
 
+
 1. Call narrow peaks
 ```sh
 name=`basename $bam ".bam"`
@@ -25,11 +26,11 @@ macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel
 samtools view -c -L ${promoters_bed} ${bam} > ${out_dir}/reads_in_promoter.txt
 ```
 
-4. Convert peak file to saf (peaks2saf.pl). Count reads in each peak (featureCounts).
-```sh
-cat ${name}.narrowPeaks | peaks2saf.pl > ${saf}
-featureCounts -p -T 4 --donotsort -F SAF -a ${saf} -o ${name}.narrowPeaks.counts ${bam}
-```
+## What files does MACS2 accept?
+
+MACS2 accepts a BED or a BAM file. From experience, I found that using BED files yields more refined but much shorter peaks (i.e, can distinguish two peaks within one) while BAM files yields longer and less resolved peaks. For genetic analyses, specifically QTL analyses, I recommend using BAM files as input because longer peaks have a higher change of detecting QTLs. While ENCODE calls peaks using BED files, there have been studies that used BAM files, so I believe both methods are acceptable. 
+
+## 
 
 Next steps:
 10. Remove peaks in blacklisted regions (from ENCODE)

@@ -1,9 +1,9 @@
 ---
 layout: default
 permalink: /doc/bioinformatics/atac_tmm_normalization
-nav_order: 5
+nav_order: 6
 parent: 1.1 ATAC-seq
-title: 1.1.3 TMM Normalization
+title: 1.1.4 TMM Normalization
 grand_parent: "1. Bioinformatics Tutorials 🧬"
 ---
 
