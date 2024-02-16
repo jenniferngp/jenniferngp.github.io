@@ -9,23 +9,25 @@ permalink: /doc/bioinformatics/rna_star_reference
 
 # Create STAR Reference
 
-0. Load software
+## 0. Load software
 ```sh
 export PATH=/software/STAR-2.7.10b/bin/Linux_x86_64:$PATH
 export PATH=/software/STAR-2.7.10b/source/:$PATH
 ```
 
-1. Download conprehensive gene annotation GTF file from Gencode: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_45/gencode.v45.annotation.gtf.gz
-
-2. Download hg38 fasta reference from UCSC: https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
-
-3. Unzip files
+## 1. Download gene annotation GTF file
 ```sh
+wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_45/gencode.v45.annotation.gtf.gz
 gunzip gencode.v45.annotation.gtf.gz
+```
+
+## 2. Download hg38 fasta reference from UCSC
+```sh
+wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
 gunzip hg38.fa.gz
 ```
 
-4. Make reference
+## 3. Make reference
 ```sh
 STAR --runThreadN 32 --runMode genomeGenerate --genomeDir ${out_dir} \
 --genomeFastaFiles hg38.fa --sjdbGTFfile gencode.v44.annotation.gtf \

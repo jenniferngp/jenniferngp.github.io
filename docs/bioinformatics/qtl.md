@@ -8,7 +8,7 @@ title: 1.8 QTL Analyses
 
 # QTL Analyses
 
-This is going to be a hefty tutorial so be prepared.... 
+Coming soon
 
 
 
