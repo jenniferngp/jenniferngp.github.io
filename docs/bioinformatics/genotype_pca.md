@@ -2,8 +2,8 @@
 layout: default
 parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/pca_genotype
-nav_order: 5
-title: 1.5 Genotype PCA
+nav_order: 6
+title: 1.6 Genotype PCA
 ---
 
 # Principal component analysis to characterize global ancestry

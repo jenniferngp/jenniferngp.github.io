@@ -2,7 +2,7 @@
 layout: default
 parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/sample_identity
-nav_order:5
+nav_order: 5
 title: 1.5 Sample ID
 ---
 
