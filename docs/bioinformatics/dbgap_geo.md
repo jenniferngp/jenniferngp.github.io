@@ -2,8 +2,8 @@
 layout: default
 parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/qtl
-nav_order: 9
-title: 1.9 dbGaP/GEO
+nav_order: 10
+title: 1.10 dbGaP/GEO
 ---
 
 # dbGaP / GEO
