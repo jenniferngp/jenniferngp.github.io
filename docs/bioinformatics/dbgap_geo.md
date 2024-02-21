@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: "1. Bioinformatics Tutorials 🧬"
-permalink: "/doc/bioinformatics/1.10.dbgap_geo"
+permalink: "/doc/bioinformatics/dbgap_geo"
 nav_order: 10
 title: 1.10 dbGaP/GEO
 ---
