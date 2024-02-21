@@ -3,7 +3,7 @@ layout: default
 parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/run-ldsc
 nav_order: 3
-title: 1.3 LD Score Regression
+title: 1.3 LDSC
 ---
 
 # LD Score regression to estimate heritability enrichment
@@ -24,7 +24,15 @@ git clone https://github.com/bulik/ldsc.git
 
 ## Preparing GWAS Data
 
-- Ensure your GWAS summary statistics are formatted correctly. Key columns include SNP identifier, position, allele information, p-values, effect sizes, and standard errors.
+- Required columns are:
+
+1. SNP: identifier
+2. N: sample size
+3. Z: z-score (sign respect to A1)
+4. A1: effect allele 
+5. A2: second allele
+
+- Make sure that MAF, N, N_CASE, and N_CONTROL have no non-numeric values and remove all empty values
 - If necessary, use the munge_sumstats.py script included with LDSC to format your summary statistics:
 
 ```sh
@@ -34,15 +42,18 @@ python ldsc/munge_sumstats.py \
 --merge-alleles w_hm3.snplist
 ```
 
-- Tip: Make sure that MAF, N, N_CASE, and N_CONTROL have no non-numeric values and remove all empty values
+Notes:
+
 
 ## Preparing Annotations Files
 
-To ensure a smooth and error-free experience, I strongly advise annotating with SNPs directly from the baseline dataset. This guarantees that the order of variants remains consistent across different annotations. The program tends to throw errors if it detects any discrepancies in the variant order between your dataset and baseline annotations. By sticking with the baseline SNPs from the get-go, you would sidestep this potential error entirely. You will also need to separate these files by chromosomes. I would also recommend making one set of annotation files that contains all of your annotations (each row is a SNP, each column is an annotation). 
+I recommend annotating the SNPs directly from the baseline dataset. This ensures that the order of variants remains consistent across different annotations. The program will throw an error if there are discrepancies in the variant order between your dataset and baseline annotations. By annotating baseline SNPs from the beginning, you would prevent this error from occurring. Also, LDSC developers recommend using a set of HapMap SNPs to run LDSC, and the baseline files already contains these SNPs. 
+
+You will also need to separate these files by chromosomes. I also recommend combining all of your annotations into one file, it just makes things easier downstream. 
 
 ## Estimate the LD Score
 
-The LD score measures the association strength between variants in a given population. Estimating it accurately is essential for understanding the genetic architecture of traits and for subsequent analyses, including heritability estimation and genetic correlation studies.
+The LD score measures the association strength between variants in a given population. Here, I am using European population as reference. 
 
 ```sh
 for chr in {1..22}; 
@@ -59,7 +70,7 @@ done
 
 ## Estimate Heritability
 
-Use the ldsc.py script with your formatted GWAS summary statistics and the appropriate LD Score files. For `--ref-ld-chr`, I included my annotations (`annotations/`) and baseline annotations (`baseline_v1.2/baseline.`). LDSC will read these files assuming the chromosome number follows right after the prefix provided. 
+`ldsc.py` is provided in the GitHub. For `--ref-ld-chr`, you will need to both your (`annotations/`) and the baseline annotations (`baseline_v1.2/baseline.`). LDSC will read these files assuming the chromosome number follows right after the prefix provided. For example, the way I had structured my annotations directory is as follows: `annotations/1.*`, `annotations/2.*`, etc.
 
 ```sh
 python ldsc.py \
@@ -73,7 +84,7 @@ python ldsc.py \
 
 ## Interpreting Results
 
-The above command outputs a `*.results`. The `Enrichment` column was calculated as proportion of heritability explained by SNPs within ATAC peaks divided by the proportion of SNPs within ATAC peaks, and each enrichment was given a p-value, with studies using < 0.05 as the threshold. 
+`ldsc.py` will output `*.results` file, which contains an Enrichment column and an "Enrichment_p" column. Enrichment was calculated as proportion of heritability explained by SNPs within ATAC peaks divided by the proportion of SNPs within ATAC peaks. Previous studies have used Enrichment_p < 0.05 as the threshold.  
 
 
 

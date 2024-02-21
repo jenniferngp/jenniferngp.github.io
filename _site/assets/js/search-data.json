@@ -63,586 +63,621 @@
     "relUrl": "/doc/bioinformatics/atac-seq"
   },"9": {
     "doc": "1.1.2 Call Peaks (MACS2)",
-    "title": "Calling Peaks using MACS2",
-    "content": ". | Call narrow peaks name=`basename $bam \".bam\"` macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --call-summits . | Call broad peaks macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --broad . | Count reads in promoters samtools view -c -L ${promoters_bed} ${bam} &gt; ${out_dir}/reads_in_promoter.txt . | . ",
-    "url": "/doc/bioinformatics/atac_call_peaks#calling-peaks-using-macs2",
+    "title": "Calling ATAC-seq Peaks using MACS2",
+    "content": "MACS2 (Model-based Analysis of ChIP-seq 2) (Zhang et al., Genome Biology, 2008) is a widely used tool originally designed for the analysis of ChIP-seq but is also commonly used for ATAC-seq analysis. MACS2 identifies peaks of enriched regions from ChIP-seq data or in the case of ATAC-seq data, regions of open chromatin. For detailed tutorial of MACS2: https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html . The decision to call narrow peaks versus broad peaks is primarily based on the nature of the experiment. From previous experience, I have always used narrow peaks for ATAC-seq experiments. To help determine which type of peaks to call, you may assess the distribution of the peak lengths and determine if they are compatible with common literature. For example, TF binding sites are typically short sequences so narrow peaks might be more suitable. MACS2 also accepts either a BED or a BAM file. From experience, I find that using BED files as input yields more refined and shorter peaks while BAM files yields longer and less resolved peaks. However, the shorter peaks from using BED files can be too short and therefore, not ideal for genetic analyses. We found that larger peaks have a better chance of identifying relevant regulatory variants than shorter peaks. ",
+    "url": "/doc/bioinformatics/atac_call_peaks#calling-atac-seq-peaks-using-macs2",
     
-    "relUrl": "/doc/bioinformatics/atac_call_peaks#calling-peaks-using-macs2"
+    "relUrl": "/doc/bioinformatics/atac_call_peaks#calling-atac-seq-peaks-using-macs2"
   },"10": {
     "doc": "1.1.2 Call Peaks (MACS2)",
-    "title": "What files does MACS2 accept?",
-    "content": "MACS2 accepts a BED or a BAM file. From experience, I found that using BED files yields more refined but much shorter peaks (i.e, can distinguish two peaks within one) while BAM files yields longer and less resolved peaks. For genetic analyses, specifically QTL analyses, I recommend using BAM files as input because longer peaks have a higher change of detecting QTLs. While ENCODE calls peaks using BED files, there have been studies that used BAM files, so I believe both methods are acceptable. ## . Next steps: . | Remove peaks in blacklisted regions (from ENCODE) | TMM normalize read counts using edgeR | Generate consensus peaks by merging peaks across samples or selecting a subsample of high-quality samples and call peaks from their merged bam files. | . ",
-    "url": "/doc/bioinformatics/atac_call_peaks#what-files-does-macs2-accept",
+    "title": "Calling narrow peaks",
+    "content": "name=`basename $bam \".bam\"` macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --call-summits . ",
+    "url": "/doc/bioinformatics/atac_call_peaks#calling-narrow-peaks",
     
-    "relUrl": "/doc/bioinformatics/atac_call_peaks#what-files-does-macs2-accept"
+    "relUrl": "/doc/bioinformatics/atac_call_peaks#calling-narrow-peaks"
   },"11": {
+    "doc": "1.1.2 Call Peaks (MACS2)",
+    "title": "Calling broad peaks",
+    "content": "macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --broad . ",
+    "url": "/doc/bioinformatics/atac_call_peaks#calling-broad-peaks",
+    
+    "relUrl": "/doc/bioinformatics/atac_call_peaks#calling-broad-peaks"
+  },"12": {
+    "doc": "1.1.2 Call Peaks (MACS2)",
+    "title": "Remove peaks in blacklisted regions",
+    "content": " ",
+    "url": "/doc/bioinformatics/atac_call_peaks#remove-peaks-in-blacklisted-regions",
+    
+    "relUrl": "/doc/bioinformatics/atac_call_peaks#remove-peaks-in-blacklisted-regions"
+  },"13": {
     "doc": "1.1.2 Call Peaks (MACS2)",
     "title": "1.1.2 Call Peaks (MACS2)",
     "content": " ",
     "url": "/doc/bioinformatics/atac_call_peaks",
     
     "relUrl": "/doc/bioinformatics/atac_call_peaks"
-  },"12": {
+  },"14": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "ATAC-seq Processing using STAR",
     "content": " ",
     "url": "/doc/bioinformatics/atac_processing_star#atac-seq-processing-using-star",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star#atac-seq-processing-using-star"
-  },"13": {
+  },"15": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "Pre-requisites",
     "content": ". | STAR (https://github.com/alexdobin/STAR) | samtools (through conda or build your own https://www.htslib.org/download/) | RSEM (through conda or build your own https://github.com/deweylab/RSEM?tab=readme-ov-file#compilation) | . ",
     "url": "/doc/bioinformatics/atac_processing_star#pre-requisites",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star#pre-requisites"
-  },"14": {
+  },"16": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "0. Make scratch directory",
     "content": "dir=`mktemp -d -p scratch` . ",
     "url": "/doc/bioinformatics/atac_processing_star#0-make-scratch-directory",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star#0-make-scratch-directory"
-  },"15": {
+  },"17": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "1. Align",
     "content": "id= #sample id project= #project_id out_dir= #ouput directory reference=/reference/private/STAR/hg19_gencode34 STAR \\ --runThreadN 8 \\ --alignIntronMax 1 \\ --genomeDir $reference \\ --genomeLoad NoSharedMemory \\ --readFilesCommand zcat \\ --readFilesIn ${dir}/R1.fastq.gz ${dir}/R2.fastq.gz \\ --outSAMattributes All \\ --outSAMunmapped Within \\ --outSAMattrRGline ID:1 PL:ILLUMINA PU:${project} LB:${id} SM:${id} \\ --outFilterMultimapNmax 20 \\ --outFilterMismatchNmax 999 \\ --outFilterMismatchNoverLmax 0.04 \\ --seedSearchStartLmax 20 \\ --outFilterScoreMinOverLread 0.1 \\ --outFilterMatchNminOverLread 0.1 \\ --outSAMtype BAM Unsorted \\ --outFileNamePrefix ${out_dir}/ . ",
     "url": "/doc/bioinformatics/atac_processing_star#1-align",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star#1-align"
-  },"16": {
+  },"18": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "2. Mark duplicates.",
     "content": "bam=Aligned.out.bam name=`basename $bam \".bam\"` samtools sort -n -m 2G -@ 8 $bam -o ${dir}/${name}.nsorted.bam samtools fixmate -m -@ 8 ${dir}/${name}.nsorted.bam ${dir}/${name}.fixmate.bam samtools sort -m 2G -@ 8 -o ${dir}/${name}.sorted.bam ${dir}/${name}.fixmate.bam samtools markdup -@ 8 ${dir}/${name}.sorted.bam ${out_dir}/${name}.mdup.bam samtools index -@ 8 ${out_dir}/${name}.mdup.bam . ",
     "url": "/doc/bioinformatics/atac_processing_star#2-mark-duplicates",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star#2-mark-duplicates"
-  },"17": {
+  },"19": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "3. Get mapping stats (duplicates, chrM reads, etc.)",
     "content": "samtools flagstat -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.flagstat samtools idxstats -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.idxstats samtools stats -@ 8 ${out_dir}/${name}.mdup.bam &gt; ${out_dir}/${name}.mdup.stats . ",
     "url": "/doc/bioinformatics/atac_processing_star#3-get-mapping-stats-duplicates-chrm-reads-etc",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star#3-get-mapping-stats-duplicates-chrm-reads-etc"
-  },"18": {
+  },"20": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "4. Filter reads",
     "content": ". | Remove duplicates (-F 1024) | Retain reads with mapping quality &gt; 20 (-q 20) | Retain reads in proper pair (-f 2) | Retain fragments between 38-2000 bp. chrs=(`seq 1 22` X Y) chrs=chr`echo ${chrs[@]} | sed 's/ / chr/g'` samtools view -h -q 20 -f 2 -F 1024 ${out_dir}/${name}.mdup.bam $chrs |\\ awk 'function abs(v) {return v &lt; 0 ? -v : v}; substr($0,1,1)==\"@\" || (abs($9) &gt;= 38 &amp;&amp; abs($9) &lt;= 2000)' |\\ samtools view -b -@ 4 &gt; ${out_dir}/${name}.filt.bam . | . ",
     "url": "/doc/bioinformatics/atac_processing_star#4-filter-reads",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star#4-filter-reads"
-  },"19": {
+  },"21": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "5. Index",
     "content": "samtools index ${out_dir}/${name}.filt.bam . ",
     "url": "/doc/bioinformatics/atac_processing_star#5-index",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star#5-index"
-  },"20": {
+  },"22": {
     "doc": "1.1.1 Data Processing using STAR",
     "title": "1.1.1 Data Processing using STAR",
     "content": " ",
     "url": "/doc/bioinformatics/atac_processing_star",
     
     "relUrl": "/doc/bioinformatics/atac_processing_star"
-  },"21": {
+  },"23": {
     "doc": "1.1.4 TMM Normalization",
     "title": "TMM Normalization",
     "content": "R version 4.2.1 . if (!require(\"BiocManager\", quietly = TRUE)) install.packages(\"BiocManager\") BiocManager::install(\"edgeR\") library(edgeR) library(dplyr) library(data.table) # 0. Get sample ids meta = fread(\"metadata.txt\", row.names = F) # 1. Initialize counts matrix # example filename: counts/sample1.counts file = paste(\"counts\", paste(meta$phenotype_id, \"counts\", sep = \".\"), sep = \"/\") counts = fread(file, data.table = F) colnames(counts)[7] = meta$phenotype_id[1] # 2. Cbind counts from other samples for (sample in meta$phenotype_id[2:length(meta$phenotype_id)]) { file = paste(\"counts\", paste(sample, \"counts\", sep = \".\"), sep = \"/\") this = fread(file, data.table = F) colnames(this)[7] = sample counts = merge(counts, this, by = c(\"Geneid\", \"Chr\", \"Start\", \"End\", \"Strand\", \"Length\")) } fwrite(counts, \"phenotype_counts_matrix.txt\", row.names = F, sep = \"\\t\") # 3. TMM Normalize # https://www.biostars.org/p/317701/ to_tmm = counts %&gt;% select(-Chr, -Start, -End, -Strand, -Length) dge = DGEList(counts=as.matrix(to_tmm), group=colnames(to_tmm)) dge = calcNormFactors(dge, method = \"TMM\") tmm = data.frame(cpm(dge)) fwrite(tmm, \"phenotype_tmm_matrix.txt\" row.names = F, sep = \"\\t\") . ",
     "url": "/doc/bioinformatics/atac_tmm_normalization#tmm-normalization",
     
     "relUrl": "/doc/bioinformatics/atac_tmm_normalization#tmm-normalization"
-  },"22": {
+  },"24": {
     "doc": "1.1.4 TMM Normalization",
     "title": "1.1.4 TMM Normalization",
     "content": " ",
     "url": "/doc/bioinformatics/atac_tmm_normalization",
     
     "relUrl": "/doc/bioinformatics/atac_tmm_normalization"
-  },"23": {
+  },"25": {
     "doc": "3.1 Tomato Noodle Soup",
     "title": "Tom Yum Tomato Noodle Soup (Bun Rieu)",
     "content": "Ingredients: . | 4 chicken drumsticks | 6 cups of water | 2 lemongrass stalks (cut in half, peeled, and beatened) | 1 tbsp Instant Tom Yum sauce | 2 roma tomatoes | 1/8 tsp MSG | 3 tsp sugar | 3 tsp salt | Tofu cubes (as many as you want; fried or not, both are delicious) | . Steps: . | Boil water with chicken drumsticks, MSG, sugar, and salt | After water boils, add lemongrass. | Cover pot with lid and simmer for 12 min | Turn off heat. Place pot to the side and let sit for ~12 min. | Add tomatos, tofu, and tom yum sauce. Mix. | Serve with ~1/4 tbsp shrimp paste! | . ",
     "url": "/docs/recipes/bun_rieu#tom-yum-tomato-noodle-soup-bun-rieu",
     
     "relUrl": "/docs/recipes/bun_rieu#tom-yum-tomato-noodle-soup-bun-rieu"
-  },"24": {
+  },"26": {
     "doc": "3.1 Tomato Noodle Soup",
     "title": "3.1 Tomato Noodle Soup",
     "content": " ",
     "url": "/docs/recipes/bun_rieu",
     
     "relUrl": "/docs/recipes/bun_rieu"
-  },"25": {
+  },"27": {
     "doc": "3.3 Banana Tapioca Dessert",
     "title": "Banana Tapioca Desert (Che Chuoi)",
     "content": "Ingredients: . | 1 pound cubed taro | 0.5 pound cubed cassava (~$2.5/pound at grocery store, pre-peeled) | 1 packet vanilla sugar | 5 tbsp sugar | half of 1/3 cup peeled mung bean (yellow) | half of 1/3 cup dried tapioca rectangles (pink and green rectangle) | half of 1/3 cup tapioca pearl | 5 cups water | 1 cup coconut cream | 0.5 tsp salt | . Steps: . | Wash taro and cassava. Cut into cubes. | Boil 4 cups of water. Cook cassava in boiling water for 8 minutes. Drain. Leave to the side. | Wash dried tapioca rectangles and mung bean in water. | Boil 5 cups of water. Add the now washed tapioca rectangles and mung beans. Lower heat and simmer for 10 minutes. | Add washed tapioca pearl and cook for 15 more minutes | Add taro and cook for 8 more minutes | Add sugar, coconut cream, vanilla sugar, and salt | Serve hot or cold! Delicious at both temps! | . ",
     "url": "/docs/recipes/che_chuoi#banana-tapioca-desert-che-chuoi",
     
     "relUrl": "/docs/recipes/che_chuoi#banana-tapioca-desert-che-chuoi"
-  },"26": {
+  },"28": {
     "doc": "3.3 Banana Tapioca Dessert",
     "title": "3.3 Banana Tapioca Dessert",
     "content": " ",
     "url": "/docs/recipes/che_chuoi",
     
     "relUrl": "/docs/recipes/che_chuoi"
-  },"27": {
+  },"29": {
+    "doc": "1.9 dbGaP/GEO",
+    "title": "dbGaP / GEO",
+    "content": "The Database of Genotypes and Phenotypes (dbGaP) and the Gene Expression Omnibus (GEO) are both databases managed by NCBI but they each have distinct access policies reflecting the nature of the data they contain and their intended research applications. For dbGP, access to individual-level data in dbGaP is controlled due to the sensitive nature of genetic and phenotypic information. Researchers must apply for access, detailing their research purposes and obtaining approval from a data access committee to ensure compliance with privacy protections and ethical guidelines. For GEO, it provides open access to its datasets, which include high-throughput gene expression data and other functional genomic datasets. The public can freely download these datasets without the need for application or approval. Both databases deposit raw data onto the Sequence Read Archive (SRA). However, if you are downloading data from dbGaP, you will need to add the extra paramter --ngc which points to your personal dbGaP repository key. ",
+    "url": "/doc/bioinformatics/qtl#dbgap--geo",
+    
+    "relUrl": "/doc/bioinformatics/qtl#dbgap--geo"
+  },"30": {
+    "doc": "1.9 dbGaP/GEO",
+    "title": "Downloading data from SRA",
+    "content": "1. Install the SRA Toolkit . Fetch the tar file . wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.10/sratoolkit.3.0.10-centos_linux64.tar.gz . Extract contents from the tar file . tar -xvzf sratoolkit.3.0.10-centos_linux64.tar.gz . Add path to your environmental variable . export PATH=${dir}/sratoolkit.3.0.10-centos_linux64/bin:$PATH . Verify that the binaries are executable . which fasterq-dump . The output should be this . ${dir}/sratoolkit.3.0.10-centos_linux64/bin/fasterq-dump . 2. Obtain the SRR ID for the sample you wish to download . I find that it is easiest to get SRR IDs from SRA Run Selector using either a GSE (GSEXXXXX) or BioProject (PRJNAXXXX) Accession number (https://0-www-ncbi-nlm-nih-gov.brum.beds.ac.uk/Traces/study/?). 3. Download . Using prefetch before fasterq-dump is a recommended practice when downloading from data from SRA. It ensures the integrity of the downloaded data by verifying file completeness and checksums after download. This minimizes the risk of data corruption or partial downloads. It also allows for better management of network bandwidth. prefetch will download an .sra. If the data is controlled access (i.e., on dbGaP) . prefetch ${SRR_ID} fasterq-dump --ngc ${ngc_file} ~/ncbi/sra/${SRR_ID}.sra --split-3 . If the data is uncontrolled . prefetch ${SRR_ID} fasterq-dump ~/ncbi/sra/${SRR_ID}.sra --split-3 . split-3 will split paired-end reads into the *_1.fastq and *_2.fastq files. Unmated (i.e., single-end) reads will be written in a .fastq file. If the data has a technical reads (like single-cell data from 10x Genomics), you will need to add the --include-technical parameter. Useful references: . | https://github.com/ncbi/sra-tools/wiki/HowTo:-fasterq-dump | https://rnnh.github.io/bioinfo-notebook/docs/fasterq-dump.html | . ",
+    "url": "/doc/bioinformatics/qtl#downloading-data-from-sra",
+    
+    "relUrl": "/doc/bioinformatics/qtl#downloading-data-from-sra"
+  },"31": {
+    "doc": "1.9 dbGaP/GEO",
+    "title": "1.9 dbGaP/GEO",
+    "content": " ",
+    "url": "/doc/bioinformatics/qtl",
+    
+    "relUrl": "/doc/bioinformatics/qtl"
+  },"32": {
     "doc": "1.8 Epilogos",
     "title": "Chromatin State Enrichment using Epilogos",
     "content": "Coming soon . ",
     "url": "/doc/bioinformatics/epilogos#chromatin-state-enrichment-using-epilogos",
     
     "relUrl": "/doc/bioinformatics/epilogos#chromatin-state-enrichment-using-epilogos"
-  },"28": {
+  },"33": {
     "doc": "1.8 Epilogos",
     "title": "1.8 Epilogos",
     "content": " ",
     "url": "/doc/bioinformatics/epilogos",
     
     "relUrl": "/doc/bioinformatics/epilogos"
-  },"29": {
+  },"34": {
     "doc": "1.4 FIMO",
     "title": "Using FIMO to determine whether a SNP disrupts a motif occurrence",
     "content": "FIMO stands for “Find Individual Motif Occurrences” and is a software tool that is part of the MEME Suite. FIMO was designed to scan a set of sequences (e.g., DNA or protein sequences) for occurrences of specific motifs, which are patterns that are widespread and presumed to have a biological significance. Often, they indicate sequence-specific binding sites for proteins such as nucleases and transcription factors (TFs). FIMO is useful to identify potential binding sites of TFs or other motif-associated proteins within genomic regions. FIMO outputs: . | A p-value for the motif occurrence measuring “the probability of a random sequence of the same length as the motif matching that position of the sequence with as good or better a score”. | A score for the match of a position in a sequence to a motif, computed by “summing the appropriate entries from each column of the position-dependent scoring matrix that represents the motif”. | A q-value for a motif occurrence defined as “the false discovery rate if the occurrence is accepted as significant”. | . Useful links: . | https://meme-suite.org/meme/doc/fimo.html | https://meme-suite.org/meme/doc/examples/fimo_example_output_files/fimo.html | . ",
     "url": "/doc/bioinformatics/fimo#using-fimo-to-determine-whether-a-snp-disrupts-a-motif-occurrence",
     
     "relUrl": "/doc/bioinformatics/fimo#using-fimo-to-determine-whether-a-snp-disrupts-a-motif-occurrence"
-  },"30": {
+  },"35": {
     "doc": "1.4 FIMO",
     "title": "1. Prepare sequences for FIMO",
     "content": "This script processes a list of SNPs by iterating over each one. For every SNP, it retrieves a 30 base pair (bp) sequence surrounding it and saves this sequence to a file. Subsequently, the script swaps the original allele for its alternative allele within this sequence and records the modified sequence as well. snps2test = c(\"VAR_1_12345_A_G\", \"VAR_4_23568372_T_C\") # SNPs to test for motif disruption outfile = \"sequences.txt\" # name of file to write sequences window = 30 # considering a 30 bp window from SNP for motif detection for (snp in snps2test) { chr = unlist(strsplit(snp, \"_\"))[2] pos = as.numeric(unlist(strsplit(snp, \"_\"))[3]) ref = unlist(strsplit(snp, \"_\"))[4] alt = unlist(strsplit(snp, \"_\"))[5] start = pos - window end = pos + window cmd = paste(\"samtools faidx\", \"/reference/public/ucsc/hg38/hg38.fa\", paste0(paste0(\"chr\", chr), \":\", start, \"-\", end)) seq = fread(cmd = cmd, header = F) seq = as.vector(paste(toupper(seq[2,]$V1), toupper(seq[3,]$V1), sep = \"\")) message(paste(\"Sequence of interest:\", seq)) write(paste0(\"&gt;\", snp, \"-1\"), file, append = T) write(seq, file, append = T) allele_to_replace_with = c(ref, alt)[which(!c(ref, alt) %in% unlist(strsplit(seq, \"\"))[window+1])] message(paste(\"Allele to replace with:\", allele_to_replace_with)) if (length(allele_to_replace_with) == 1) { alt_seq = unlist(strsplit(seq, '')) alt_seq[window+1] = allele_to_replace_with ref_seq = unlist(strsplit(seq, '')) message(paste( length(ref_seq), paste(ref_seq[1:window], collapse = \"\"), ref_seq[window+1], paste(ref_seq[window+2:length(ref_seq)], collapse = \"\"), sep = \"-\"), appendLF = F) message(paste( length(alt_seq), paste(alt_seq[1:window], collapse = \"\"), alt_seq[window+1], paste(alt_seq[window+2:length(alt_seq)], collapse = \"\"), sep = \"-\"), appendLF = F) alt_seq = paste0(alt_seq, collapse = \"\") write(paste0(\"&gt;\", snp, \"-2\"), file, append = T) write(alt_seq, file, append = T) } } . ",
     "url": "/doc/bioinformatics/fimo#1-prepare-sequences-for-fimo",
     
     "relUrl": "/doc/bioinformatics/fimo#1-prepare-sequences-for-fimo"
-  },"31": {
+  },"36": {
     "doc": "1.4 FIMO",
     "title": "2. Run FIMO",
     "content": "fimo \\ –thresh 0.01 \\ –max-stored-scores 1000000 \\ –no-qvalue–skip-matched-sequence \\ –text \\ &lt;motif&gt; \\ &lt;sequence-file&gt; . ",
     "url": "/doc/bioinformatics/fimo#2-run-fimo",
     
     "relUrl": "/doc/bioinformatics/fimo#2-run-fimo"
-  },"32": {
+  },"37": {
     "doc": "1.4 FIMO",
     "title": "3. Measure motif disruption",
     "content": "From a previous study: . | Currin KW, Erdos MR, Narisu N, Rai V, Vadlamudi S, Perrin HJ, Idol JR, Yan T, Albanus RD, Broadaway KA, Etheridge AS. Genetic effects on liver chromatin accessibility identify disease regulatory variants. The American Journal of Human Genetics. 2021 Jul 1;108(7):1169-89. | . For each motif-variant pair, we selected the strongest motif match (smallest p value) per allele and only retained motif occurrences that matched strongly to at least one allele (p &lt; 1 × 10−4). If different motifs for the same representative TF overlapped the same variant, we selected the motif with the strongest match. Similar to a recent study, we quantified the difference in motif match between alleles of a variant using the log ratio of FIMO p values. The FIMO p value for a given motif occurrence is the probability of observing a motif occurrence with the same or greater score, which inherently accounts for differences in score distributions between different motifs. For a given variant-motif pair, we define motif disruption as log10(paw) – log10(pas), where paw and pas are the FIMO p values for the alleles with the weaker and stronger motif match, respectively. As motif disruption is always positive, we classified a motif as disrupted if motif disruption was &gt; 1, corresponding to a 10-fold difference in the FIMO p values between alleles. ",
     "url": "/doc/bioinformatics/fimo#3-measure-motif-disruption",
     
     "relUrl": "/doc/bioinformatics/fimo#3-measure-motif-disruption"
-  },"33": {
+  },"38": {
     "doc": "1.4 FIMO",
     "title": "1.4 FIMO",
     "content": " ",
     "url": "/doc/bioinformatics/fimo",
     
     "relUrl": "/doc/bioinformatics/fimo"
-  },"34": {
+  },"39": {
     "doc": "1.5 Genotype PCA",
     "title": "Using PCA to characterize global ancestry of individuals",
     "content": "Coming soon . ",
     "url": "/doc/bioinformatics/pca_genotype#using-pca-to-characterize-global-ancestry-of-individuals",
     
     "relUrl": "/doc/bioinformatics/pca_genotype#using-pca-to-characterize-global-ancestry-of-individuals"
-  },"35": {
+  },"40": {
     "doc": "1.5 Genotype PCA",
     "title": "1.5 Genotype PCA",
     "content": " ",
     "url": "/doc/bioinformatics/pca_genotype",
     
     "relUrl": "/doc/bioinformatics/pca_genotype"
-  },"36": {
+  },"41": {
     "doc": "Home",
     "title": "Hello! I’m Jennifer",
     "content": "I am a Bioinformatics PhD student studying human genetics and genomics. I leverage large multi-omics datasets generated from iPSCs and derived tissues to functionally characterize the regulatory mechanisms of genetic variants associated with human complex traits and diseases. I have an interdisciplinary background with 4 years of wet-lab experience (from undergraduate and post-undergraduate) and 6 years of bioinformatics experience (from graduate). Outside of research, I enjoy running, reading, and experimenting with new recipes. This website serves as my personal digtal repository for my notes and tutorials. ",
     "url": "/#hello-im-jennifer",
     
     "relUrl": "/#hello-im-jennifer"
-  },"37": {
+  },"42": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "/",
     
     "relUrl": "/"
-  },"38": {
+  },"43": {
     "doc": "2. Github 🔀",
     "title": "2. Github 🔀",
     "content": " ",
     "url": "/docs/github",
     
     "relUrl": "/docs/github"
-  },"39": {
-    "doc": "1. Bioinformatics Tutorials 🧬",
-    "title": "1. Bioinformatics Tutorials 🧬",
-    "content": " ",
-    "url": "/docs/bioinformatics",
-    
-    "relUrl": "/docs/bioinformatics"
-  },"40": {
+  },"44": {
     "doc": "3. Cooking Recipes 😋",
     "title": "3. Cooking Recipes 😋",
     "content": " ",
     "url": "/docs/recipes",
     
     "relUrl": "/docs/recipes"
-  },"41": {
+  },"45": {
+    "doc": "1. Bioinformatics Tutorials 🧬",
+    "title": "1. Bioinformatics Tutorials 🧬",
+    "content": " ",
+    "url": "/docs/bioinformatics",
+    
+    "relUrl": "/docs/bioinformatics"
+  },"46": {
     "doc": "3.2 Peanut Sticky Rice",
     "title": "Peanut Coconut Sticky Rice (Xoi Dau)",
     "content": "Ingredients: . | 1 lb peanuts (double sticky rice, equiv to 24oz) | 4 cups water | 1tsp salt | 12 oz sticky rice | 8 oz water | 0.5tsp salt (equiv to 1 cup water) | . Steps : . | Wash peanuts and cook in 4 cups of water and 1 tsp salt in an instant pot using the “Beans” function (35-40min) | Natural release the pressure and drain the peanuts (DO NOT WASH PEANUTS) | Wash and cook 12 oz of sticky rice in 8 oz water with peanuts and 0.5tsp salt for 10 min | Natural release for 2 min and immediate release pressure using chopsticks | Mix. Place lid back on and let it “cook” for another 5 min | Mix. Add 1 cup of coconut flakes | Store in a container and cover so the rice would not dry out | . ",
     "url": "/docs/recipes/peanut_sticky_rice#peanut-coconut-sticky-rice-xoi-dau",
     
     "relUrl": "/docs/recipes/peanut_sticky_rice#peanut-coconut-sticky-rice-xoi-dau"
-  },"42": {
+  },"47": {
     "doc": "3.2 Peanut Sticky Rice",
     "title": "3.2 Peanut Sticky Rice",
     "content": " ",
     "url": "/docs/recipes/peanut_sticky_rice",
     
     "relUrl": "/docs/recipes/peanut_sticky_rice"
-  },"43": {
+  },"48": {
     "doc": "3.5 Chicken Pho",
     "title": "Chicken Pho (Pho Ga)",
     "content": "Ingredients: . | 4 chicken drum sticks | 6 cups water | 1.8 tsp MSG | 3 tsp sugar | 3 tsp salt | 5 cloves | 1 tsp coriander | 1 tsp fennel seeds | 1 star anise | 1 cinnamon stick | . Steps : . | Boil 4 chicken drum sticks in 6 cups of water with 3 tsp sugar and 3 tsp salt | Once it starts boiling, add clove, coriander, fennel seeds, star anise, and cinnamon | Cover and simmer for 12 min | Turn off heat. Move the pot to the side. Keep covered and “cook” for another 12 min | Serve with cilantro, slices of red onions, hoisin sauce, and siracha | . ",
     "url": "/docs/recipes/pho_ga#chicken-pho-pho-ga",
     
     "relUrl": "/docs/recipes/pho_ga#chicken-pho-pho-ga"
-  },"44": {
+  },"49": {
     "doc": "3.5 Chicken Pho",
     "title": "3.5 Chicken Pho",
     "content": " ",
     "url": "/docs/recipes/pho_ga",
     
     "relUrl": "/docs/recipes/pho_ga"
-  },"45": {
-    "doc": "1.8 QTL Analyses",
+  },"50": {
+    "doc": "1.8 QTL Mapping",
     "title": "QTL Analyses",
     "content": "Coming soon . ",
     "url": "/doc/bioinformatics/qtl#qtl-analyses",
     
     "relUrl": "/doc/bioinformatics/qtl#qtl-analyses"
-  },"46": {
-    "doc": "1.8 QTL Analyses",
-    "title": "1.8 QTL Analyses",
+  },"51": {
+    "doc": "1.8 QTL Mapping",
+    "title": "1.8 QTL Mapping",
     "content": " ",
     "url": "/doc/bioinformatics/qtl",
     
     "relUrl": "/doc/bioinformatics/qtl"
-  },"47": {
+  },"52": {
     "doc": "1.2 RNA-seq",
     "title": "RNA-seq",
     "content": "Last updated: 12-19-2023 . RNA-seq, or RNA sequencing, is a technique used in molecular biology to analyze the transcriptome of a sample. The transcriptome refers to the complete set of RNA molecules, including mRNA (messenger RNA), rRNA (ribosomal RNA), tRNA (transfer RNA), and other non-coding RNA produced by the cells of an organism or a tissue. Most RNA-seq data measures mRNA levels, and specialized protocols are used for each type of RNA molecule being measured. ",
     "url": "/doc/bioinformatics/rna-seq#rna-seq",
     
     "relUrl": "/doc/bioinformatics/rna-seq#rna-seq"
-  },"48": {
+  },"53": {
     "doc": "1.2 RNA-seq",
     "title": "1.2 RNA-seq",
     "content": " ",
     "url": "/doc/bioinformatics/rna-seq",
     
     "relUrl": "/doc/bioinformatics/rna-seq"
-  },"49": {
+  },"54": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "Data Processing and Expression Quantification",
     "content": "Credit to former Frazer Lab members . ",
     "url": "/doc/bioinformatics/rna_processing#data-processing-and-expression-quantification",
     
     "relUrl": "/doc/bioinformatics/rna_processing#data-processing-and-expression-quantification"
-  },"50": {
+  },"55": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "0. Make scratch directory",
     "content": "dir=`mktemp -d -p scratch` . ",
     "url": "/doc/bioinformatics/rna_processing#0-make-scratch-directory",
     
     "relUrl": "/doc/bioinformatics/rna_processing#0-make-scratch-directory"
-  },"51": {
+  },"56": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "1. Set reference",
     "content": "reference_star=/reference/private/STAR/hg38_gencode44/reference reference_rsem=/reference/private/RSEM/hg38_gencode44/reference/hg38_gencode44 . ",
     "url": "/doc/bioinformatics/rna_processing#1-set-reference",
     
     "relUrl": "/doc/bioinformatics/rna_processing#1-set-reference"
-  },"52": {
+  },"57": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "2. STAR Alignment",
     "content": "date &gt;&amp; 2 in_files=( ${dir}/R1.fastq ${dir}/R2.fastq ) STAR \\ --runThreadN 12 \\ --genomeDir ${reference_star} \\ --genomeLoad NoSharedMemory \\ --readFilesIn ${in_files[@]} \\ --outSAMattributes All \\ --outSAMunmapped Within \\ --outSAMattrRGline ID:1 PL:ILLUMINA PU:CARDIPS LB:${name} SM:${name} \\ --outFilterMultimapNmax 20 \\ --outFilterMismatchNmax 999 \\ --alignIntronMin 20 \\ --alignIntronMax 1000000 \\ --alignMatesGapMax 1000000 \\ --outSAMtype BAM Unsorted \\ --outFileNamePrefix ${dir}/ \\ --quantMode TranscriptomeSAM . ",
     "url": "/doc/bioinformatics/rna_processing#2-star-alignment",
     
     "relUrl": "/doc/bioinformatics/rna_processing#2-star-alignment"
-  },"53": {
+  },"58": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "3. Sort. Fill mate coordinates. Index",
     "content": "samtools sort -m 2G -n -o ${dir}/Aligned.out.namesorted.bam -@ 12 ${dir}/Aligned.out.bam\" samtools fixmate -@ 12 -m ${dir}/Aligned.out.namesorted.bam ${dir}/Aligned.out.namesorted.fixmate.bam\" samtools sort -m 2G -o ${dir}/Aligned.out.sorted.bam -@ 12 ${dir}/Aligned.out.namesorted.fixmate.bam samtools index -@ 12 ${dir}/Aligned.out.sorted.bam ${dir}/Aligned.out.sorted.bam.bai . ",
     "url": "/doc/bioinformatics/rna_processing#3-sort-fill-mate-coordinates-index",
     
     "relUrl": "/doc/bioinformatics/rna_processing#3-sort-fill-mate-coordinates-index"
-  },"54": {
+  },"59": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "4. Mark duplicates",
     "content": "date &gt;&amp; 2 cmd=\"samtools markdup -@ 12 -s -T ${dir}/temp ${dir}/Aligned.out.sorted.bam ${dir}/Aligned.out.sorted.mdup.bam\" echo $cmd &gt;&amp; 2; eval $cmd date &gt;&amp; 2 cmd=\"samtools index -@ 12 ${dir}/Aligned.out.sorted.mdup.bam ${dir}/Aligned.out.sorted.mdup.bam.bai\" echo $cmd &gt;&amp; 2; eval $cmd . ",
     "url": "/doc/bioinformatics/rna_processing#4-mark-duplicates",
     
     "relUrl": "/doc/bioinformatics/rna_processing#4-mark-duplicates"
-  },"55": {
+  },"60": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "5. Get mapping stats",
     "content": "samtools flagstat -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.flagstat samtools idxstats -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.idxstats samtools stats -@ 12 ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.bam.stats . ",
     "url": "/doc/bioinformatics/rna_processing#5-get-mapping-stats",
     
     "relUrl": "/doc/bioinformatics/rna_processing#5-get-mapping-stats"
-  },"56": {
+  },"61": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "6. Reformat header for PICARD",
     "content": "samtools view -H ${dir}/Aligned.out.sorted.mdup.bam | sed 's,^@RG.*,@RG\\tID:None\\tSM:None\\tLB:None\\tPL:Illumina,g' | samtools reheader - ${dir}/Aligned.out.sorted.mdup.bam &gt; ${dir}/Aligned.out.sorted.mdup.reheader.bam . ",
     "url": "/doc/bioinformatics/rna_processing#6-reformat-header-for-picard",
     
     "relUrl": "/doc/bioinformatics/rna_processing#6-reformat-header-for-picard"
-  },"57": {
+  },"62": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "7. Run Picard to get more mapping stats",
     "content": "Useful stats from this are % intergenic bases, % mRNA bases, % ribosomal bases . refFlat=/reference/public/UCSC/hg38/refFlat.txt.gz picard CollectRnaSeqMetrics \\ I=${dir}/Aligned.out.sorted.mdup.reheader.bam \\ O=${dir}/picard.RNA_Metrics \\ VALIDATION_STRINGENCY=SILENT \\ REF_FLAT=$refFlat \\ STRAND=NONE . ",
     "url": "/doc/bioinformatics/rna_processing#7-run-picard-to-get-more-mapping-stats",
     
     "relUrl": "/doc/bioinformatics/rna_processing#7-run-picard-to-get-more-mapping-stats"
-  },"58": {
+  },"63": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "8. Run RSEM",
     "content": "Generates read counts, TPM, and RPKM for each gene in the GTF file. Requires the toTranscriptome.out.bam outputted by STAR . cmd=\"rsem-calculate-expression \\ --bam \\ --num-threads 16 \\ --no-bam-output \\ --seed 3272015 \\ --estimate-rspd \\ --forward-prob 0\" if [ ${#in_files[@]} -gt 1 ]; then cmd=$cmd\" --paired-end\" fi cmd=$cmd\" ${dir}/Aligned.toTranscriptome.out.bam ${reference_rsem} ${dir}/rsem\" eval $cmd . ",
     "url": "/doc/bioinformatics/rna_processing#8-run-rsem",
     
     "relUrl": "/doc/bioinformatics/rna_processing#8-run-rsem"
-  },"59": {
+  },"64": {
     "doc": "1.2.1 Data Processing and Expression Quantification",
     "title": "1.2.1 Data Processing and Expression Quantification",
     "content": " ",
     "url": "/doc/bioinformatics/rna_processing",
     
     "relUrl": "/doc/bioinformatics/rna_processing"
-  },"60": {
-    "doc": "1.2.0 Create RSEM Reference",
+  },"65": {
+    "doc": "1.2.0 RSEM Reference",
     "title": "Create RSEM Reference",
     "content": " ",
     "url": "/doc/bioinformatics/rna_rsem_reference#create-rsem-reference",
     
     "relUrl": "/doc/bioinformatics/rna_rsem_reference#create-rsem-reference"
-  },"61": {
-    "doc": "1.2.0 Create RSEM Reference",
+  },"66": {
+    "doc": "1.2.0 RSEM Reference",
     "title": "0. Load software",
     "content": "export PATH=/software/STAR-2.7.10b/bin/Linux_x86_64:$PATH export PATH=/software/STAR-2.7.10b/source/:$PATH . ",
     "url": "/doc/bioinformatics/rna_rsem_reference#0-load-software",
     
     "relUrl": "/doc/bioinformatics/rna_rsem_reference#0-load-software"
-  },"62": {
-    "doc": "1.2.0 Create RSEM Reference",
+  },"67": {
+    "doc": "1.2.0 RSEM Reference",
     "title": "1. Download gene annotation GTF file",
     "content": "wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_45/gencode.v45.annotation.gtf.gz gunzip gencode.v45.annotation.gtf.gz . ",
     "url": "/doc/bioinformatics/rna_rsem_reference#1-download-gene-annotation-gtf-file",
     
     "relUrl": "/doc/bioinformatics/rna_rsem_reference#1-download-gene-annotation-gtf-file"
-  },"63": {
-    "doc": "1.2.0 Create RSEM Reference",
+  },"68": {
+    "doc": "1.2.0 RSEM Reference",
     "title": "2. Download hg38 fasta reference from UCSC",
     "content": "wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz gunzip hg38.fa.gz . ",
     "url": "/doc/bioinformatics/rna_rsem_reference#2-download-hg38-fasta-reference-from-ucsc",
     
     "relUrl": "/doc/bioinformatics/rna_rsem_reference#2-download-hg38-fasta-reference-from-ucsc"
-  },"64": {
-    "doc": "1.2.0 Create RSEM Reference",
+  },"69": {
+    "doc": "1.2.0 RSEM Reference",
     "title": "3. Make reference",
     "content": "rsem-prepare-reference --gtf gencode.v44.annotation.gtf \\ hg38.fa ${out_dir}/${prefix} . This command should output these files: . | ${prefix}.chrlist | ${prefix}.idx.fa | ${prefix}.seq | ${prefix}.transcripts.fa | ${prefix}.grp | ${prefix}.n2g.idx.fa | ${prefix}.ti | . Notes: . | https://deweylab.github.io/RSEM/rsem-prepare-reference.html | . Publications: . | Li B, Dewey CN. RSEM: accurate transcript quantification from RNA-Seq data with or without a reference genome. BMC bioinformatics. 2011 Dec;12:1-6. | https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-323 | . ",
     "url": "/doc/bioinformatics/rna_rsem_reference#3-make-reference",
     
     "relUrl": "/doc/bioinformatics/rna_rsem_reference#3-make-reference"
-  },"65": {
-    "doc": "1.2.0 Create RSEM Reference",
-    "title": "1.2.0 Create RSEM Reference",
+  },"70": {
+    "doc": "1.2.0 RSEM Reference",
+    "title": "1.2.0 RSEM Reference",
     "content": " ",
     "url": "/doc/bioinformatics/rna_rsem_reference",
     
     "relUrl": "/doc/bioinformatics/rna_rsem_reference"
-  },"66": {
-    "doc": "1.2.0 Create STAR Reference",
+  },"71": {
+    "doc": "1.2.0 STAR Reference",
     "title": "Create STAR Reference",
     "content": " ",
     "url": "/doc/bioinformatics/rna_star_reference#create-star-reference",
     
     "relUrl": "/doc/bioinformatics/rna_star_reference#create-star-reference"
-  },"67": {
-    "doc": "1.2.0 Create STAR Reference",
+  },"72": {
+    "doc": "1.2.0 STAR Reference",
     "title": "0. Load software",
     "content": "export PATH=/software/STAR-2.7.10b/bin/Linux_x86_64:$PATH export PATH=/software/STAR-2.7.10b/source/:$PATH . ",
     "url": "/doc/bioinformatics/rna_star_reference#0-load-software",
     
     "relUrl": "/doc/bioinformatics/rna_star_reference#0-load-software"
-  },"68": {
-    "doc": "1.2.0 Create STAR Reference",
+  },"73": {
+    "doc": "1.2.0 STAR Reference",
     "title": "1. Download gene annotation GTF file",
     "content": "wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_45/gencode.v45.annotation.gtf.gz gunzip gencode.v45.annotation.gtf.gz . ",
     "url": "/doc/bioinformatics/rna_star_reference#1-download-gene-annotation-gtf-file",
     
     "relUrl": "/doc/bioinformatics/rna_star_reference#1-download-gene-annotation-gtf-file"
-  },"69": {
-    "doc": "1.2.0 Create STAR Reference",
+  },"74": {
+    "doc": "1.2.0 STAR Reference",
     "title": "2. Download hg38 fasta reference from UCSC",
     "content": "wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz gunzip hg38.fa.gz . ",
     "url": "/doc/bioinformatics/rna_star_reference#2-download-hg38-fasta-reference-from-ucsc",
     
     "relUrl": "/doc/bioinformatics/rna_star_reference#2-download-hg38-fasta-reference-from-ucsc"
-  },"70": {
-    "doc": "1.2.0 Create STAR Reference",
+  },"75": {
+    "doc": "1.2.0 STAR Reference",
     "title": "3. Make reference",
     "content": "STAR --runThreadN 32 --runMode genomeGenerate --genomeDir ${out_dir} \\ --genomeFastaFiles hg38.fa --sjdbGTFfile gencode.v44.annotation.gtf \\ --sjdbOverhang 99 . This command should output these files: . | chrLength.txt | chrName.txt | exonGeTrInfo.tab | geneInfo.tab | genomeParameters.txt | SA | sjdbInfo.txt | sjdbList.out.tab | chrNameLength.txt | chrStart.txt | exonInfo.tab | Genome | Log.out | SAindex | sjdbList.fromGTF.out.tab | transcriptInfo.tab | . Notes: . | https://www.reneshbedre.com/blog/star-aligner.html | . References on sjdbOverhang: . | https://groups.google.com/g/rna-star/c/h9oh10UlvhI/m/BfSPGivUHmsJ | https://groups.google.com/g/rna-star/c/pHKU0vGGvGk | . Actual script: . | scripts/rna_seq/star_reference.pbx | . ",
     "url": "/doc/bioinformatics/rna_star_reference#3-make-reference",
     
     "relUrl": "/doc/bioinformatics/rna_star_reference#3-make-reference"
-  },"71": {
-    "doc": "1.2.0 Create STAR Reference",
-    "title": "1.2.0 Create STAR Reference",
+  },"76": {
+    "doc": "1.2.0 STAR Reference",
+    "title": "1.2.0 STAR Reference",
     "content": " ",
     "url": "/doc/bioinformatics/rna_star_reference",
     
     "relUrl": "/doc/bioinformatics/rna_star_reference"
-  },"72": {
-    "doc": "1.3 LD Score Regression",
+  },"77": {
+    "doc": "1.3 LDSC",
     "title": "LD Score regression to estimate heritability enrichment",
     "content": "LD Score regression is a statistical method used in genetics to estimate the heritability of traits, the genetic correlation between traits from summary-level GWAS (Genome-Wide Association Studies) data, and more. It leverages the principle that the contribution of genetic variants to trait heritability is proportional to their linkage disequilibrium (LD) score, which measures the non-random association between a pair of genetic variants within a population. Here’s a basic tutorial on how to use LD Score Regression, focusing on the use of the popular software LDSC (LD Score Regression Software). ",
     "url": "/doc/bioinformatics/run-ldsc#ld-score-regression-to-estimate-heritability-enrichment",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#ld-score-regression-to-estimate-heritability-enrichment"
-  },"73": {
-    "doc": "1.3 LD Score Regression",
+  },"78": {
+    "doc": "1.3 LDSC",
     "title": "Prerequisites",
     "content": "Before you start, you’ll need: . | Python: LDSC is a Python-based tool, so ensure Python is installed on your system. | GWAS Summary Statistics: You’ll need summary statistics from a GWAS study that you’re interested in analyzing. | LD Score Files: These files are necessary for the analysis and can be downloaded from the LDSC GitHub repository or other sources. | . ",
     "url": "/doc/bioinformatics/run-ldsc#prerequisites",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#prerequisites"
-  },"74": {
-    "doc": "1.3 LD Score Regression",
+  },"79": {
+    "doc": "1.3 LDSC",
     "title": "Installation",
     "content": "git clone https://github.com/bulik/ldsc.git . ",
     "url": "/doc/bioinformatics/run-ldsc#installation",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#installation"
-  },"75": {
-    "doc": "1.3 LD Score Regression",
+  },"80": {
+    "doc": "1.3 LDSC",
     "title": "Preparing GWAS Data",
     "content": ". | Ensure your GWAS summary statistics are formatted correctly. Key columns include SNP identifier, position, allele information, p-values, effect sizes, and standard errors. | If necessary, use the munge_sumstats.py script included with LDSC to format your summary statistics: | . python ldsc/munge_sumstats.py \\ --sumstats your_data.txt \\ --out formatted_data \\ --merge-alleles w_hm3.snplist . | Tip: Make sure that MAF, N, N_CASE, and N_CONTROL have no non-numeric values and remove all empty values | . ",
     "url": "/doc/bioinformatics/run-ldsc#preparing-gwas-data",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#preparing-gwas-data"
-  },"76": {
-    "doc": "1.3 LD Score Regression",
+  },"81": {
+    "doc": "1.3 LDSC",
     "title": "Preparing Annotations Files",
     "content": "To ensure a smooth and error-free experience, I strongly advise annotating with SNPs directly from the baseline dataset. This guarantees that the order of variants remains consistent across different annotations. The program tends to throw errors if it detects any discrepancies in the variant order between your dataset and baseline annotations. By sticking with the baseline SNPs from the get-go, you would sidestep this potential error entirely. You will also need to separate these files by chromosomes. I would also recommend making one set of annotation files that contains all of your annotations (each row is a SNP, each column is an annotation). ",
     "url": "/doc/bioinformatics/run-ldsc#preparing-annotations-files",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#preparing-annotations-files"
-  },"77": {
-    "doc": "1.3 LD Score Regression",
+  },"82": {
+    "doc": "1.3 LDSC",
     "title": "Estimate the LD Score",
     "content": "The LD score measures the association strength between variants in a given population. Estimating it accurately is essential for understanding the genetic architecture of traits and for subsequent analyses, including heritability estimation and genetic correlation studies. for chr in {1..22}; do python ldsc.py \\ --l2 \\ --ld-wind-cm 1 \\ --yes-really \\ --bfile plink_files/1000G.EUR.hg38.${chr} \\ --annot annotations/${chr}.annot.gz \\ --out annotations/${chr} done . ",
     "url": "/doc/bioinformatics/run-ldsc#estimate-the-ld-score",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#estimate-the-ld-score"
-  },"78": {
-    "doc": "1.3 LD Score Regression",
+  },"83": {
+    "doc": "1.3 LDSC",
     "title": "Estimate Heritability",
     "content": "Use the ldsc.py script with your formatted GWAS summary statistics and the appropriate LD Score files. For --ref-ld-chr, I included my annotations (annotations/) and baseline annotations (baseline_v1.2/baseline.). LDSC will read these files assuming the chromosome number follows right after the prefix provided. python ldsc.py \\ --h2 height.sumstats.gz \\ --ref-ld-chr annotations/,baseline_v1.2/baseline. \\ --w-ld-chr weights/weights.hm3_noMHC. \\ --overlap-annot \\ --frqfile-chr 1000G_Phase3_frq/1000G.EUR.QC. \\ --out h2_out/height . ",
     "url": "/doc/bioinformatics/run-ldsc#estimate-heritability",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#estimate-heritability"
-  },"79": {
-    "doc": "1.3 LD Score Regression",
+  },"84": {
+    "doc": "1.3 LDSC",
     "title": "Interpreting Results",
     "content": "The above command outputs a *.results. The Enrichment column was calculated as proportion of heritability explained by SNPs within ATAC peaks divided by the proportion of SNPs within ATAC peaks, and each enrichment was given a p-value, with studies using &lt; 0.05 as the threshold. ",
     "url": "/doc/bioinformatics/run-ldsc#interpreting-results",
     
     "relUrl": "/doc/bioinformatics/run-ldsc#interpreting-results"
-  },"80": {
-    "doc": "1.3 LD Score Regression",
-    "title": "1.3 LD Score Regression",
+  },"85": {
+    "doc": "1.3 LDSC",
+    "title": "1.3 LDSC",
     "content": " ",
     "url": "/doc/bioinformatics/run-ldsc",
     
     "relUrl": "/doc/bioinformatics/run-ldsc"
-  },"81": {
-    "doc": "1.6 Sample Identity",
+  },"86": {
+    "doc": "1.6 Sample ID",
     "title": "Matching a Sequencing Sample to its Subject",
     "content": "Coming soon . ",
     "url": "/doc/bioinformatics/sample_identity#matching-a-sequencing-sample-to-its-subject",
     
     "relUrl": "/doc/bioinformatics/sample_identity#matching-a-sequencing-sample-to-its-subject"
-  },"82": {
-    "doc": "1.6 Sample Identity",
-    "title": "1.6 Sample Identity",
+  },"87": {
+    "doc": "1.6 Sample ID",
+    "title": "1.6 Sample ID",
     "content": " ",
     "url": "/doc/bioinformatics/sample_identity",
     
     "relUrl": "/doc/bioinformatics/sample_identity"
-  },"83": {
+  },"88": {
     "doc": "2.0 Setting up GitHub",
     "title": "What is Github?",
     "content": "GitHub is a web-based platform used for version control and collaboration on software projects. It provides developers with a centralized location to store, manage, and track changes to their code. GitHub utilizes the Git version control system, which allows multiple people to work on the same codebase simultaneously while keeping track of changes and facilitating collaboration. ",
     "url": "/docs/gibhut/setup#what-is-github",
     
     "relUrl": "/docs/gibhut/setup#what-is-github"
-  },"84": {
+  },"89": {
     "doc": "2.0 Setting up GitHub",
     "title": "Set up Git",
     "content": ". | Download . | Configure name and email for identification git config --global user.name \"Your name\" git config --global user.email \"your@email.com\" . | Initialize repository git Initialize ls -a # check if there is a .git . | Check status Check if there are untracked files or staged files that need to be added to repo git status . | Stage files git add filename1 filename2 . | Making commits git commit -m \"Commit message\" . | Check history of commit git log . | Push git push -u origin main . | . ",
     "url": "/docs/gibhut/setup#set-up-git",
     
     "relUrl": "/docs/gibhut/setup#set-up-git"
-  },"85": {
+  },"90": {
     "doc": "2.0 Setting up GitHub",
     "title": "2.0 Setting up GitHub",
     "content": " ",
     "url": "/docs/gibhut/setup",
     
     "relUrl": "/docs/gibhut/setup"
-  },"86": {
-    "doc": "1.7 TF Footprinting (TOBIAS)",
+  },"91": {
+    "doc": "1.7 Tobias",
     "title": "TF Footpring with TOBIAS",
     "content": "Coming soon . ",
     "url": "/doc/bioinformatics/tobias#tf-footpring-with-tobias",
     
     "relUrl": "/doc/bioinformatics/tobias#tf-footpring-with-tobias"
-  },"87": {
-    "doc": "1.7 TF Footprinting (TOBIAS)",
-    "title": "1.7 TF Footprinting (TOBIAS)",
+  },"92": {
+    "doc": "1.7 Tobias",
+    "title": "1.7 Tobias",
     "content": " ",
     "url": "/doc/bioinformatics/tobias",
     
     "relUrl": "/doc/bioinformatics/tobias"
-  },"88": {
+  },"93": {
     "doc": "3.4 Steamed Egg Cake",
     "title": "Steamy Egg Cake (Trung Hap)",
     "content": "Ingredients: . | 1 pound ground meat (pre-seasoned with sugar, MSG, and pepper) | 5 whole eggs | 1 bunch of bean thread noodles | 1 tbsp sugar | 1/8 tsp MSG | Pepper (trust your gut) | 1 small onion | 2.5 tbsp fish sauce | 0.25 tbsp chopped thai chilli peppers | . Steps : . | Soak noodles in boiling water for 15 min | Mix all ingredients | Steam for 30 min | . Notes: . | Most popular bean thread noodles are the ones in a neon pink package | Use glassware to steam the egg cake | . ",
     "url": "/docs/recipes/trung_hap#steamy-egg-cake-trung-hap",
     
     "relUrl": "/docs/recipes/trung_hap#steamy-egg-cake-trung-hap"
-  },"89": {
+  },"94": {
     "doc": "3.4 Steamed Egg Cake",
     "title": "3.4 Steamed Egg Cake",
     "content": " ",
     "url": "/docs/recipes/trung_hap",
     
     "relUrl": "/docs/recipes/trung_hap"
-  },"90": {
+  },"95": {
     "doc": "2.1 Build a website (Jekyll)",
     "title": "Build a website with Jekyll template",
     "content": ". | Create a GitHub repository | Clone repository to local git clone https://github.com/your-username/respository-name.git . | Install Ruby To check if you have Ruby installed, run ruby -v . If not, refer to the Ruby documentation for instructions (https://www.ruby-lang.org). | Install Bundler gem install bundler . | Set up Just the Docs template cd repository-name . Create a file named “Gemfile” and add the following lines . source \"https://rubygems.org\" gem \"github-pages\", group: :jekyll_plugins . Save and close “Gemfile”. Then, create a file named “_config.yml” and add the following lines . remote_theme: pmarsceill/just-the-docs title: My Docs description: Your site description . Save and close “_config.yml”. | Install webrick gem install webrick . If you have Ruby 3.0, you’ll need to add to Gemfile because it’s no longer provided. bundle add webrick . | Install the required dependencies bundle install . | Build and serve website bundle exec jekyll serve . Jekyll will start the local server and output a URL where you can view your website real-time. Open your web browser and visit the provided URL. | . ",
     "url": "/doc/github/website#build-a-website-with-jekyll-template",
     
     "relUrl": "/doc/github/website#build-a-website-with-jekyll-template"
-  },"91": {
+  },"96": {
     "doc": "2.1 Build a website (Jekyll)",
     "title": "2.1 Build a website (Jekyll)",
     "content": " ",
     "url": "/doc/github/website",
     
     "relUrl": "/doc/github/website"
-  },"92": {
+  },"97": {
     "doc": "",
     "title": "",
     "content": "--- layout: default permalink: /doc/bioinformatics/atac_call_peaks nav_order: 4 parent: 1.1 ATAC-seq title: 1.1.3 Read Counts grand_parent: \"1. Bioinformatics Tutorials 🧬\" --- # Calculating Read Counts and TMM normalization 4. Convert peak file to saf (peaks2saf.pl). Count reads in each peak (featureCounts). ```sh cat narrowPeaks.bed | peaks2saf.pl > ${saf} featureCounts -p -T 4 --donotsort -F SAF -a ${saf} -o ${name}.narrowPeaks.counts ${bam} ``` ",

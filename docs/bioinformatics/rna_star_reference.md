@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 1
-title: 1.2.0 Create STAR Reference
+title: 1.2.0 STAR Reference
 parent: 1.2 RNA-seq
 grand_parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/rna_star_reference

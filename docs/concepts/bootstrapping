@@ -1,0 +1,35 @@
+Bootstrapping
+
+Bootstrapping is a statistical procedure that resamples a single dataset to create many simulated samples. This process allows you to calculate standard errors, construct confidence intervals, and perform hypothesis testing for numerous types of sample statistics. 
+
+Each of these simulated sample has its own properties, such as the mean. 
+
+Benefits
+- Easier to understand compared to traditional statistics which requires a comprehsive understanding of complex equations needed to generate probability distributions
+- Bootstrapping does not make assumptions about the distribution of data. You merely resample your data and use whatever samping distribution emerges. The, you work with that distribution whatever it might be. 
+- Examples of sample statistics: mean, median, mode, SD, regression coefficients, proportions, odds ratios, and multivariate statistics among others. 
+- 
+
+
+
+Randomly sample from the original data X number of times = to the number of points in the original dataset to create the "Bootstrapped dataset". Sampled with replacement
+
+Calculate the mean and save
+
+Repeat 2,000 times
+
+Bootstrapping:
+
+1) Make a bootstrapped dataset
+2) Calculate the statistic (mean, median, sd, etc.)
+3) Keep track of that calculation
+4) Repeat steps 1-3 MANY times 
+
+Used to calculate standard error and confidence interval for the original mean
+
+
+Nice resources:
+
+1. https://statisticsbyjim.com/hypothesis-testing/bootstrapping/
+2. https://www.youtube.com/watch?v=Xz0x-8-cgaQ
+

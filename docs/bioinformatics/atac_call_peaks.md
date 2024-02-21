@@ -7,32 +7,30 @@ title: 1.1.2 Call Peaks (MACS2)
 grand_parent: "1. Bioinformatics Tutorials 🧬"
 ---
 
-# Calling Peaks using MACS2
+# Calling ATAC-seq Peaks using MACS2
 
+MACS2 (Model-based Analysis of ChIP-seq 2) (Zhang et al., Genome Biology, 2008) is a widely used tool originally designed for the analysis of ChIP-seq but is also commonly used for ATAC-seq analysis. MACS2 identifies peaks of enriched regions from ChIP-seq data or in the case of ATAC-seq data, regions of open chromatin. 
 
-1. Call narrow peaks
+For detailed tutorial of MACS2: https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html
+
+The decision to call narrow peaks versus broad peaks is primarily based on the nature of the experiment. From previous experience, I have always used narrow peaks for ATAC-seq experiments. To help determine which type of peaks to call, you may assess the distribution of the peak lengths and determine if they are compatible with common literature. For example, TF binding sites are typically short sequences so narrow peaks might be more suitable. 
+
+MACS2 also accepts either a BED or a BAM file. From experience, I find that using BED files as input yields more refined and shorter peaks while BAM files yields longer and less resolved peaks. However, the shorter peaks from using BED files can be too short and therefore, not ideal for genetic analyses. We found that larger peaks have a better chance of identifying relevant regulatory variants than shorter peaks. 
+
+## Calling narrow peaks
 ```sh
 name=`basename $bam ".bam"`
 macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --call-summits
 ```
 
-2. Call broad peaks
+## Calling broad peaks
 ```sh
 macs2 callpeak -f BAMPE -g hs -t ${bam} -n ${name} --outdir ${out_dir} --nomodel --shift -100 --extsize 200 --broad
 ```
 
-3. Count reads in promoters
-```sh
-samtools view -c -L ${promoters_bed} ${bam} > ${out_dir}/reads_in_promoter.txt
-```
+## Remove peaks in blacklisted regions
 
-## What files does MACS2 accept?
 
-MACS2 accepts a BED or a BAM file. From experience, I found that using BED files yields more refined but much shorter peaks (i.e, can distinguish two peaks within one) while BAM files yields longer and less resolved peaks. For genetic analyses, specifically QTL analyses, I recommend using BAM files as input because longer peaks have a higher change of detecting QTLs. While ENCODE calls peaks using BED files, there have been studies that used BAM files, so I believe both methods are acceptable. 
 
-## 
 
-Next steps:
-10. Remove peaks in blacklisted regions (from ENCODE)
-11. TMM normalize read counts using edgeR
-12. Generate consensus peaks by merging peaks across samples or selecting a subsample of high-quality samples and call peaks from their merged bam files. 
+

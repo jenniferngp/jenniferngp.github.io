@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 2
-title: 1.2.0 Create RSEM Reference
+title: 1.2.0 RSEM Reference
 parent: 1.2 RNA-seq
 grand_parent: "1. Bioinformatics Tutorials 🧬"
 permalink: /doc/bioinformatics/rna_rsem_reference

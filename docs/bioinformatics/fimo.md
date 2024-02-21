@@ -12,7 +12,7 @@ FIMO stands for "Find Individual Motif Occurrences" and is a software tool that 
 
 FIMO outputs:
 
-- A p-value for the motif occurrence measuring "the probability of a random sequence of the same length as the motif matching that position of the sequence with as good or better a score". 
+- A p-value for the motif occurrence measuring "the probability of a random sequence of the same length as the motif matching that position of the sequence with as good or better a score" (i.e., sigificance for motif match)
 - A score for the match of a position in a sequence to a motif, computed by "summing the appropriate entries from each column of the position-dependent scoring matrix that represents the motif".
 - A q-value for a motif occurrence defined as "the false discovery rate if the occurrence is accepted as significant".  
 
